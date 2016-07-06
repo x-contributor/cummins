@@ -1,0 +1,20 @@
+#imagenes{
+    padding:1%;
+    width: 100%;
+}
+.separator{
+    height: 5px;
+    background-color: #e1d700;
+    width: 100%;
+}
+
+.navbar-cummins {
+    background-color: #041b2d;
+    border-color: #041b2d;
+    border-bottom-color: #e1d700;
+    border-bottom-width: 10px;
+}
+
+div.navbar-collapse>ul>li>a{
+    color: #fcf8e3;
+}
