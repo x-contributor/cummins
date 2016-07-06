@@ -1,0 +1,14 @@
+version: '2'
+services:
+    cummins-mysql:
+        container_name: cummins-mysql
+        image: mysql:5.7.12
+        # volumes:
+        #     - ~/volumes/jhipster/cummins/mysql/:/var/lib/mysql/
+        environment:
+            - MYSQL_USER=root
+            - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+            - MYSQL_DATABASE=cummins
+        ports:
+            - 3306:3306
+        command: mysqld --lower_case_table_names=1 --skip-ssl
