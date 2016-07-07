@@ -6,7 +6,11 @@ entity Contacto {
     nombre String,
     email String,
     cargo String,
-    direccions String,
+    direccion String,
+    telefono String
+}
+entity VoluntarioVisitador {
+    nombre String,
     telefono String
 }
 
@@ -26,7 +30,7 @@ entity Proyecto {
 	tipoProyectto TipoProyecto
 }
 
-entity ProyetoConcurso {
+entity ProyectoConcurso {
 	estatus EstatusProyecto,
 	etapa EtapaProyecto
 }
@@ -65,14 +69,8 @@ entity Pregunta {
     min Integer
 }
 
-entity VoluntarioVisitador {
-	contacto Contacto
-}
-
 enum EtapaProyecto {
-   REGISTRADO,
-   PRIMER_FILTRO,
-   SEGUNDO_FILTRO
+   REGISTRADO, PRIMER_FILTRO, SEGUNDO_FILTRO
 }
 
 enum EstatusProyecto {
@@ -80,14 +78,18 @@ enum EstatusProyecto {
 }
 
 relationship OneToOne {
-	Participante{participante} to Contacto{contacto},
-    Participante{participante} to ParticipanteDescripcion{participanteDescripcion},
-    Respuesta{respuesta} to Pregunta{pregunta}
+	Contacto{participante} to Participante{contacto},
+    ParticipanteDescripcion{participante} to Participante{participanteDescripcion},
+    Respuesta{pregunta} to Pregunta,
+    ProyectoConcurso{proyecto} to Proyecto
 }
 
 relationship OneToMany {
-	Participante{participante} to Proyecto{proyecto},
-    Proyecto{proyecto} to Respuesta{respuesta},
-    PreguntaSeccion{seccion} to Pregunta{pregunta},
-    VoluntarioVisitador{voluntario} to Proyecto{proyecto}
+	Participante{proyecto} to Proyecto{participante},
+    PreguntaSeccion{pregunta} to Pregunta{seccion},
+    VoluntarioVisitador{proyecto} to Proyecto
+}
+
+relationship ManyToOne {
+	Respuesta{proyecto} to Proyecto
 }
