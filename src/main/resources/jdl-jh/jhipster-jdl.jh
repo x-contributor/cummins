@@ -1,0 +1,93 @@
+entity Participante {
+	nombreAC String
+}
+
+entity Contacto {
+    nombre String,
+    email String,
+    cargo String,
+    direccions String,
+    telefono String
+}
+
+entity ParticipanteDescripcion {
+	misionVision String ,
+    aniosOperacion Integer,
+    programasServcios String,
+    resultadosLogros String,
+    numeroBeneficiarios Integer,
+    comentarios String,
+ 	logotipo ImageBlob
+} 
+
+entity Proyecto {
+    proyecto String,
+	tematica Tematica,
+	tipoProyectto TipoProyecto
+}
+
+entity ProyetoConcurso {
+	estatus EstatusProyecto,
+	etapa EtapaProyecto
+}
+
+enum Tematica {
+ 	EDUCACION, 
+ 	JUSTICIA_SOCIAL,
+ 	MEDIO_AMBIENTE
+}
+
+enum TipoProyecto {
+	EXISTENTE, NUEVO
+}
+
+entity Respuesta {
+    respuesta String
+}
+
+entity PreguntaSeccion {
+    preguntaTitulo String,
+    consecutivoSeccion Integer,
+    tipoProyecto TipoProyecto,
+    minimoRespuesta Integer,
+    maximoRespuesta Integer
+}
+
+enum TipoPregunta {
+   SI_NO, CANTIDAD, DINERO, ABIERTA
+}
+
+entity Pregunta {
+    tipoPregunta TipoPregunta,
+    pregunta String,
+    ayuda String,
+    max Integer,
+    min Integer
+}
+
+entity VoluntarioVisitador {
+	contacto Contacto
+}
+
+enum EtapaProyecto {
+   REGISTRADO,
+   PRIMER_FILTRO,
+   SEGUNDO_FILTRO
+}
+
+enum EstatusProyecto {
+	ACEPTADO, RECHAZADO
+}
+
+relationship OneToOne {
+	Participante{participante} to Contacto{contacto},
+    Participante{participante} to ParticipanteDescripcion{participanteDescripcion},
+    Respuesta{respuesta} to Pregunta{pregunta}
+}
+
+relationship OneToMany {
+	Participante{participante} to Proyecto{proyecto},
+    Proyecto{proyecto} to Respuesta{respuesta},
+    PreguntaSeccion{seccion} to Pregunta{pregunta},
+    VoluntarioVisitador{voluntario} to Proyecto{proyecto}
+}
