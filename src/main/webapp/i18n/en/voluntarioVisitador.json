@@ -1,0 +1,24 @@
+{
+    "cumminsApp": {
+        "voluntarioVisitador" : {
+            "home": {
+                "title": "Voluntario Visitadors",
+                "createLabel": "Create a new Voluntario Visitador",
+                "createOrEditLabel": "Create or edit a Voluntario Visitador",
+                "search": "Search for Voluntario Visitador"
+            },
+            "created": "A new Voluntario Visitador is created with identifier {{ param }}",
+            "updated": "A Voluntario Visitador is updated with identifier {{ param }}",
+            "deleted": "A Voluntario Visitador is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Voluntario Visitador {{ id }}?"
+            },
+            "detail": {
+                "title": "Voluntario Visitador"
+            },
+            "nombre": "Nombre",
+            "telefono": "Telefono",
+            "proyecto": "Proyecto"
+        }
+    }
+}

@@ -1,0 +1,47 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myProyectoConcursoLabel" translate="cumminsApp.proyectoConcurso.home.createOrEditLabel">Create or edit a Proyecto Concurso</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.proyectoConcurso.id">
+            <label for="id" translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.proyectoConcurso.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="cumminsApp.proyectoConcurso.estatus" for="field_estatus">Estatus</label>
+            <select class="form-control" name="estatus" ng-model="vm.proyectoConcurso.estatus" id="field_estatus">
+                <option value="ACEPTADO" translate="cumminsApp.EstatusProyecto.ACEPTADO">ACEPTADO</option>
+                <option value="RECHAZADO" translate="cumminsApp.EstatusProyecto.RECHAZADO">RECHAZADO</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="cumminsApp.proyectoConcurso.etapa" for="field_etapa">Etapa</label>
+            <select class="form-control" name="etapa" ng-model="vm.proyectoConcurso.etapa" id="field_etapa">
+                <option value="REGISTRADO" translate="cumminsApp.EtapaProyecto.REGISTRADO">REGISTRADO</option>
+                <option value="PRIMER_FILTRO" translate="cumminsApp.EtapaProyecto.PRIMER_FILTRO">PRIMER_FILTRO</option>
+                <option value="SEGUNDO_FILTRO" translate="cumminsApp.EtapaProyecto.SEGUNDO_FILTRO">SEGUNDO_FILTRO</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label translate="cumminsApp.proyectoConcurso.proyecto" for="field_proyecto">Proyecto</label>
+            <select class="form-control" id="field_proyecto" name="proyecto" ng-model="vm.proyectoConcurso.proyecto" ng-options="proyecto as proyecto.id for proyecto in vm.proyectos | orderBy:'id' track by proyecto.id">
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

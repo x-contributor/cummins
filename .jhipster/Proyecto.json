@@ -1,0 +1,42 @@
+{
+  "relationships": [
+    {
+      "relationshipId": 1,
+      "relationshipName": "voluntarioVisitador",
+      "otherEntityName": "voluntarioVisitador",
+      "relationshipType": "many-to-one",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipId": 2,
+      "relationshipType": "many-to-one",
+      "relationshipName": "participante",
+      "otherEntityName": "participante",
+      "otherEntityField": "id"
+    }
+  ],
+  "fields": [
+    {
+      "fieldId": 1,
+      "fieldName": "proyecto",
+      "fieldType": "String"
+    },
+    {
+      "fieldId": 2,
+      "fieldName": "tematica",
+      "fieldType": "Tematica",
+      "fieldValues": "EDUCACION,JUSTICIA_SOCIAL,MEDIO_AMBIENTE"
+    },
+    {
+      "fieldId": 3,
+      "fieldName": "tipoProyectto",
+      "fieldType": "TipoProyecto",
+      "fieldValues": "EXISTENTE,NUEVO"
+    }
+  ],
+  "changelogDate": "20160707225517",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "entityTableName": "proyecto"
+}

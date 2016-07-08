@@ -1,0 +1,57 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myPreguntaSeccionLabel" translate="cumminsApp.preguntaSeccion.home.createOrEditLabel">Create or edit a Pregunta Seccion</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.preguntaSeccion.id">
+            <label for="id" translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.preguntaSeccion.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="cumminsApp.preguntaSeccion.preguntaTitulo" for="field_preguntaTitulo">Pregunta Titulo</label>
+            <input type="text" class="form-control" name="preguntaTitulo" id="field_preguntaTitulo"
+                    ng-model="vm.preguntaSeccion.preguntaTitulo"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="cumminsApp.preguntaSeccion.consecutivoSeccion" for="field_consecutivoSeccion">Consecutivo Seccion</label>
+            <input type="number" class="form-control" name="consecutivoSeccion" id="field_consecutivoSeccion"
+                    ng-model="vm.preguntaSeccion.consecutivoSeccion"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="cumminsApp.preguntaSeccion.tipoProyecto" for="field_tipoProyecto">Tipo Proyecto</label>
+            <select class="form-control" name="tipoProyecto" ng-model="vm.preguntaSeccion.tipoProyecto" id="field_tipoProyecto">
+                <option value="EXISTENTE" translate="cumminsApp.TipoProyecto.EXISTENTE">EXISTENTE</option>
+                <option value="NUEVO" translate="cumminsApp.TipoProyecto.NUEVO">NUEVO</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="cumminsApp.preguntaSeccion.minimoRespuesta" for="field_minimoRespuesta">Minimo Respuesta</label>
+            <input type="number" class="form-control" name="minimoRespuesta" id="field_minimoRespuesta"
+                    ng-model="vm.preguntaSeccion.minimoRespuesta"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="cumminsApp.preguntaSeccion.maximoRespuesta" for="field_maximoRespuesta">Maximo Respuesta</label>
+            <input type="number" class="form-control" name="maximoRespuesta" id="field_maximoRespuesta"
+                    ng-model="vm.preguntaSeccion.maximoRespuesta"
+                     />
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

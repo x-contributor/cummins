@@ -1,0 +1,56 @@
+{
+  "relationships": [
+    {
+      "relationshipId": 1,
+      "relationshipType": "one-to-one",
+      "relationshipName": "participante",
+      "otherEntityName": "participante",
+      "otherEntityField": "id",
+      "ownerSide": true,
+      "otherEntityRelationshipName": "participanteDescripcion"
+    }
+  ],
+  "fields": [
+    {
+      "fieldId": 1,
+      "fieldName": "misionVision",
+      "fieldType": "String"
+    },
+    {
+      "fieldId": 2,
+      "fieldName": "aniosOperacion",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldId": 3,
+      "fieldName": "programasServcios",
+      "fieldType": "String"
+    },
+    {
+      "fieldId": 4,
+      "fieldName": "resultadosLogros",
+      "fieldType": "String"
+    },
+    {
+      "fieldId": 5,
+      "fieldName": "numeroBeneficiarios",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldId": 6,
+      "fieldName": "comentarios",
+      "fieldType": "String"
+    },
+    {
+      "fieldId": 7,
+      "fieldName": "logotipo",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "image"
+    }
+  ],
+  "changelogDate": "20160707225516",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "entityTableName": "participante_descripcion"
+}

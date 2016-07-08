@@ -1,0 +1,90 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myParticipanteDescripcionLabel" translate="cumminsApp.participanteDescripcion.home.createOrEditLabel">Create or edit a Participante Descripcion</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.participanteDescripcion.id">
+            <label for="id" translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.participanteDescripcion.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="cumminsApp.participanteDescripcion.misionVision" for="field_misionVision">Mision Vision</label>
+            <input type="text" class="form-control" name="misionVision" id="field_misionVision"
+                    ng-model="vm.participanteDescripcion.misionVision"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="cumminsApp.participanteDescripcion.aniosOperacion" for="field_aniosOperacion">Anios Operacion</label>
+            <input type="number" class="form-control" name="aniosOperacion" id="field_aniosOperacion"
+                    ng-model="vm.participanteDescripcion.aniosOperacion"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="cumminsApp.participanteDescripcion.programasServcios" for="field_programasServcios">Programas Servcios</label>
+            <input type="text" class="form-control" name="programasServcios" id="field_programasServcios"
+                    ng-model="vm.participanteDescripcion.programasServcios"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="cumminsApp.participanteDescripcion.resultadosLogros" for="field_resultadosLogros">Resultados Logros</label>
+            <input type="text" class="form-control" name="resultadosLogros" id="field_resultadosLogros"
+                    ng-model="vm.participanteDescripcion.resultadosLogros"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="cumminsApp.participanteDescripcion.numeroBeneficiarios" for="field_numeroBeneficiarios">Numero Beneficiarios</label>
+            <input type="number" class="form-control" name="numeroBeneficiarios" id="field_numeroBeneficiarios"
+                    ng-model="vm.participanteDescripcion.numeroBeneficiarios"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="cumminsApp.participanteDescripcion.comentarios" for="field_comentarios">Comentarios</label>
+            <input type="text" class="form-control" name="comentarios" id="field_comentarios"
+                    ng-model="vm.participanteDescripcion.comentarios"
+                     />
+        </div>
+        <div class="form-group" ngf-drop ngf-change="vm.setLogotipo($file, vm.participanteDescripcion)" ngf-pattern="'image/*'">
+            <label class="control-label" translate="cumminsApp.participanteDescripcion.logotipo" for="field_logotipo">Logotipo</label>
+            <div>
+                <img data-ng-src="{{'data:' + vm.participanteDescripcion.logotipoContentType + ';base64,' + vm.participanteDescripcion.logotipo}}" style="max-height: 100px;" ng-if="vm.participanteDescripcion.logotipo"/>
+                <div ng-if="vm.participanteDescripcion.logotipo" class="help-block clearfix">
+                    <span class="pull-left">{{vm.participanteDescripcion.logotipoContentType}}, {{vm.byteSize(vm.participanteDescripcion.logotipo)}}</span>
+                    <button ng-click="vm.participanteDescripcion.logotipo=null;vm.participanteDescripcion.logotipoContentType=null;"
+                            class="btn btn-default btn-xs pull-right">
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </button>
+                </div>
+                <button type="file" ngf-select class="btn btn-default btn-block"
+                        ngf-change="vm.setLogotipo($file, vm.participanteDescripcion)" accept="image/*" translate="entity.action.addimage">
+                    Add image
+                </button>
+            </div>
+            <input type="hidden" class="form-control" name="logotipo" id="field_logotipo"
+                    ng-model="vm.participanteDescripcion.logotipo"
+                     />
+            <input type="hidden" class="form-control" name="logotipoContentType" id="field_logotipoContentType"
+                    ng-model="vm.participanteDescripcion.logotipoContentType" />
+        </div>
+
+        <div class="form-group">
+            <label translate="cumminsApp.participanteDescripcion.participante" for="field_participante">Participante</label>
+            <select class="form-control" id="field_participante" name="participante" ng-model="vm.participanteDescripcion.participante" ng-options="participante as participante.id for participante in vm.participantes | orderBy:'id' track by participante.id">
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

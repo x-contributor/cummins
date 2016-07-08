@@ -1,0 +1,68 @@
+<div>
+    <h2 translate="cumminsApp.pregunta.home.title">Preguntas</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="pregunta.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  translate="cumminsApp.pregunta.home.createLabel">
+                        Create new Pregunta
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                    <th><span translate="global.field.id">ID</span></th>
+                    <th><span translate="cumminsApp.pregunta.tipoPregunta">Tipo Pregunta</span></th>
+                    <th><span translate="cumminsApp.pregunta.pregunta">Pregunta</span></th>
+                    <th><span translate="cumminsApp.pregunta.ayuda">Ayuda</span></th>
+                    <th><span translate="cumminsApp.pregunta.max">Max</span></th>
+                    <th><span translate="cumminsApp.pregunta.min">Min</span></th>
+                    <th><span translate="cumminsApp.pregunta.seccion">Seccion</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="pregunta in vm.preguntas track by pregunta.id">
+                    <td><a ui-sref="pregunta-detail({id:pregunta.id})">{{pregunta.id}}</a></td>
+                    <td translate="{{'cumminsApp.TipoPregunta.' + pregunta.tipoPregunta}}">{{pregunta.tipoPregunta}}</td>
+                    <td>{{pregunta.pregunta}}</td>
+                    <td>{{pregunta.ayuda}}</td>
+                    <td>{{pregunta.max}}</td>
+                    <td>{{pregunta.min}}</td>
+                    <td>
+                        <a ui-sref="pregunta-seccion-detail({id:pregunta.seccion.id})">{{pregunta.seccion.id}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="pregunta-detail({id:pregunta.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="pregunta.edit({id:pregunta.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="pregunta.delete({id:pregunta.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

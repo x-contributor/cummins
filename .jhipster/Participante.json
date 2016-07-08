@@ -1,0 +1,39 @@
+{
+  "relationships": [
+    {
+      "relationshipId": 1,
+      "relationshipType": "one-to-many",
+      "relationshipName": "proyecto",
+      "otherEntityName": "proyecto",
+      "otherEntityRelationshipName": "participante"
+    },
+    {
+      "relationshipId": 2,
+      "relationshipType": "one-to-one",
+      "relationshipName": "contacto",
+      "otherEntityName": "contacto",
+      "ownerSide": false,
+      "otherEntityRelationshipName": "participante"
+    },
+    {
+      "relationshipId": 3,
+      "relationshipType": "one-to-one",
+      "relationshipName": "participanteDescripcion",
+      "otherEntityName": "participanteDescripcion",
+      "ownerSide": false,
+      "otherEntityRelationshipName": "participante"
+    }
+  ],
+  "fields": [
+    {
+      "fieldId": 1,
+      "fieldName": "nombreAc",
+      "fieldType": "String"
+    }
+  ],
+  "changelogDate": "20160707225513",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "entityTableName": "participante"
+}

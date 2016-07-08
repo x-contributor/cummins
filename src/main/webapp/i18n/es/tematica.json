@@ -1,0 +1,10 @@
+{
+    "cumminsApp": {
+        "Tematica" : {
+            "null": "",
+            "EDUCACION": "EDUCACION",
+            "JUSTICIA_SOCIAL": "JUSTICIA_SOCIAL",
+            "MEDIO_AMBIENTE": "MEDIO_AMBIENTE"
+        }
+    }
+}

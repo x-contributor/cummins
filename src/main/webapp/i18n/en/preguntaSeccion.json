@@ -1,0 +1,27 @@
+{
+    "cumminsApp": {
+        "preguntaSeccion" : {
+            "home": {
+                "title": "Pregunta Seccions",
+                "createLabel": "Create a new Pregunta Seccion",
+                "createOrEditLabel": "Create or edit a Pregunta Seccion",
+                "search": "Search for Pregunta Seccion"
+            },
+            "created": "A new Pregunta Seccion is created with identifier {{ param }}",
+            "updated": "A Pregunta Seccion is updated with identifier {{ param }}",
+            "deleted": "A Pregunta Seccion is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Pregunta Seccion {{ id }}?"
+            },
+            "detail": {
+                "title": "Pregunta Seccion"
+            },
+            "preguntaTitulo": "Pregunta Titulo",
+            "consecutivoSeccion": "Consecutivo Seccion",
+            "tipoProyecto": "Tipo Proyecto",
+            "minimoRespuesta": "Minimo Respuesta",
+            "maximoRespuesta": "Maximo Respuesta",
+            "pregunta": "Pregunta"
+        }
+    }
+}

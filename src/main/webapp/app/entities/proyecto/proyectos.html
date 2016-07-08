@@ -1,0 +1,68 @@
+<div>
+    <h2 translate="cumminsApp.proyecto.home.title">Proyectos</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="proyecto.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  translate="cumminsApp.proyecto.home.createLabel">
+                        Create new Proyecto
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                    <th><span translate="global.field.id">ID</span></th>
+                    <th><span translate="cumminsApp.proyecto.proyecto">Proyecto</span></th>
+                    <th><span translate="cumminsApp.proyecto.tematica">Tematica</span></th>
+                    <th><span translate="cumminsApp.proyecto.tipoProyectto">Tipo Proyectto</span></th>
+                    <th><span translate="cumminsApp.proyecto.voluntarioVisitador">Voluntario Visitador</span></th>
+                    <th><span translate="cumminsApp.proyecto.participante">Participante</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="proyecto in vm.proyectos track by proyecto.id">
+                    <td><a ui-sref="proyecto-detail({id:proyecto.id})">{{proyecto.id}}</a></td>
+                    <td>{{proyecto.proyecto}}</td>
+                    <td translate="{{'cumminsApp.Tematica.' + proyecto.tematica}}">{{proyecto.tematica}}</td>
+                    <td translate="{{'cumminsApp.TipoProyecto.' + proyecto.tipoProyectto}}">{{proyecto.tipoProyectto}}</td>
+                    <td>
+                        <a ui-sref="voluntario-visitador-detail({id:proyecto.voluntarioVisitador.id})">{{proyecto.voluntarioVisitador.id}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="participante-detail({id:proyecto.participante.id})">{{proyecto.participante.id}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="proyecto-detail({id:proyecto.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="proyecto.edit({id:proyecto.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="proyecto.delete({id:proyecto.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

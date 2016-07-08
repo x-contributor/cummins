@@ -1,0 +1,65 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myPreguntaLabel" translate="cumminsApp.pregunta.home.createOrEditLabel">Create or edit a Pregunta</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.pregunta.id">
+            <label for="id" translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.pregunta.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="cumminsApp.pregunta.tipoPregunta" for="field_tipoPregunta">Tipo Pregunta</label>
+            <select class="form-control" name="tipoPregunta" ng-model="vm.pregunta.tipoPregunta" id="field_tipoPregunta">
+                <option value="SI_NO" translate="cumminsApp.TipoPregunta.SI_NO">SI_NO</option>
+                <option value="CANTIDAD" translate="cumminsApp.TipoPregunta.CANTIDAD">CANTIDAD</option>
+                <option value="DINERO" translate="cumminsApp.TipoPregunta.DINERO">DINERO</option>
+                <option value="ABIERTA" translate="cumminsApp.TipoPregunta.ABIERTA">ABIERTA</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="cumminsApp.pregunta.pregunta" for="field_pregunta">Pregunta</label>
+            <input type="text" class="form-control" name="pregunta" id="field_pregunta"
+                    ng-model="vm.pregunta.pregunta"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="cumminsApp.pregunta.ayuda" for="field_ayuda">Ayuda</label>
+            <input type="text" class="form-control" name="ayuda" id="field_ayuda"
+                    ng-model="vm.pregunta.ayuda"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="cumminsApp.pregunta.max" for="field_max">Max</label>
+            <input type="number" class="form-control" name="max" id="field_max"
+                    ng-model="vm.pregunta.max"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="cumminsApp.pregunta.min" for="field_min">Min</label>
+            <input type="number" class="form-control" name="min" id="field_min"
+                    ng-model="vm.pregunta.min"
+                     />
+        </div>
+
+        <div class="form-group">
+            <label translate="cumminsApp.pregunta.seccion" for="field_seccion">Seccion</label>
+            <select class="form-control" id="field_seccion" name="seccion" ng-model="vm.pregunta.seccion" ng-options="preguntaSeccion as preguntaSeccion.id for preguntaSeccion in vm.preguntaseccions track by preguntaSeccion.id">
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

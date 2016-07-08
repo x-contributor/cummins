@@ -1,0 +1,44 @@
+{
+  "relationships": [
+    {
+      "relationshipId": 1,
+      "relationshipType": "one-to-many",
+      "relationshipName": "pregunta",
+      "otherEntityName": "pregunta",
+      "otherEntityRelationshipName": "seccion"
+    }
+  ],
+  "fields": [
+    {
+      "fieldId": 1,
+      "fieldName": "preguntaTitulo",
+      "fieldType": "String"
+    },
+    {
+      "fieldId": 2,
+      "fieldName": "consecutivoSeccion",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldId": 3,
+      "fieldName": "tipoProyecto",
+      "fieldType": "TipoProyecto",
+      "fieldValues": "EXISTENTE,NUEVO"
+    },
+    {
+      "fieldId": 4,
+      "fieldName": "minimoRespuesta",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldId": 5,
+      "fieldName": "maximoRespuesta",
+      "fieldType": "Integer"
+    }
+  ],
+  "changelogDate": "20160707225520",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "entityTableName": "pregunta_seccion"
+}

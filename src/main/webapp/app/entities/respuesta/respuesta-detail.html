@@ -1,0 +1,26 @@
+
+<div>
+    <h2><span translate="cumminsApp.respuesta.detail.title">Respuesta</span> {{vm.respuesta.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span translate="cumminsApp.respuesta.respuesta">Respuesta</span></dt>
+        <dd>
+            <span>{{vm.respuesta.respuesta}}</span>
+        </dd>
+        <dt><span translate="cumminsApp.respuesta.pregunta">Pregunta</span></dt>
+        <dd>
+            <a ui-sref="pregunta-detail({id:vm.respuesta.pregunta.id})">{{vm.respuesta.pregunta.id}}</a>
+        </dd>
+        <dt><span translate="cumminsApp.respuesta.proyecto">Proyecto</span></dt>
+        <dd>
+            <a ui-sref="proyecto-detail({id:vm.respuesta.proyecto.id})">{{vm.respuesta.proyecto.id}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

@@ -1,0 +1,27 @@
+{
+    "cumminsApp": {
+        "contacto" : {
+            "home": {
+                "title": "Contactos",
+                "createLabel": "Create a new Contacto",
+                "createOrEditLabel": "Create or edit a Contacto",
+                "search": "Search for Contacto"
+            },
+            "created": "A new Contacto is created with identifier {{ param }}",
+            "updated": "A Contacto is updated with identifier {{ param }}",
+            "deleted": "A Contacto is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Contacto {{ id }}?"
+            },
+            "detail": {
+                "title": "Contacto"
+            },
+            "nombre": "Nombre",
+            "email": "Email",
+            "cargo": "Cargo",
+            "direccion": "Direccion",
+            "telefono": "Telefono",
+            "participante": "Participante"
+        }
+    }
+}
