@@ -1,0 +1,34 @@
+
+<div>
+    <h2><span translate="cumminsApp.preguntaSeccion.detail.title">Pregunta Seccion</span> {{vm.preguntaSeccion.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span translate="cumminsApp.preguntaSeccion.preguntaTitulo">Pregunta Titulo</span></dt>
+        <dd>
+            <span>{{vm.preguntaSeccion.preguntaTitulo}}</span>
+        </dd>
+        <dt><span translate="cumminsApp.preguntaSeccion.consecutivoSeccion">Consecutivo Seccion</span></dt>
+        <dd>
+            <span>{{vm.preguntaSeccion.consecutivoSeccion}}</span>
+        </dd>
+        <dt><span translate="cumminsApp.preguntaSeccion.tipoProyecto">Tipo Proyecto</span></dt>
+        <dd>
+            <span translate="{{'cumminsApp.TipoProyecto.' + vm.preguntaSeccion.tipoProyecto}}">{{vm.preguntaSeccion.tipoProyecto}}</span>
+        </dd>
+        <dt><span translate="cumminsApp.preguntaSeccion.minimoRespuesta">Minimo Respuesta</span></dt>
+        <dd>
+            <span>{{vm.preguntaSeccion.minimoRespuesta}}</span>
+        </dd>
+        <dt><span translate="cumminsApp.preguntaSeccion.maximoRespuesta">Maximo Respuesta</span></dt>
+        <dd>
+            <span>{{vm.preguntaSeccion.maximoRespuesta}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

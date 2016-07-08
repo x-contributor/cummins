@@ -1,0 +1,22 @@
+
+<div>
+    <h2><span translate="cumminsApp.voluntarioVisitador.detail.title">Voluntario Visitador</span> {{vm.voluntarioVisitador.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span translate="cumminsApp.voluntarioVisitador.nombre">Nombre</span></dt>
+        <dd>
+            <span>{{vm.voluntarioVisitador.nombre}}</span>
+        </dd>
+        <dt><span translate="cumminsApp.voluntarioVisitador.telefono">Telefono</span></dt>
+        <dd>
+            <span>{{vm.voluntarioVisitador.telefono}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

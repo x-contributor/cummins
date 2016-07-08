@@ -1,0 +1,68 @@
+<div>
+    <h2 translate="cumminsApp.contacto.home.title">Contactos</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="contacto.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  translate="cumminsApp.contacto.home.createLabel">
+                        Create new Contacto
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                    <th><span translate="global.field.id">ID</span></th>
+                    <th><span translate="cumminsApp.contacto.nombre">Nombre</span></th>
+                    <th><span translate="cumminsApp.contacto.email">Email</span></th>
+                    <th><span translate="cumminsApp.contacto.cargo">Cargo</span></th>
+                    <th><span translate="cumminsApp.contacto.direccion">Direccion</span></th>
+                    <th><span translate="cumminsApp.contacto.telefono">Telefono</span></th>
+                    <th><span translate="cumminsApp.contacto.participante">Participante</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="contacto in vm.contactos track by contacto.id">
+                    <td><a ui-sref="contacto-detail({id:contacto.id})">{{contacto.id}}</a></td>
+                    <td>{{contacto.nombre}}</td>
+                    <td>{{contacto.email}}</td>
+                    <td>{{contacto.cargo}}</td>
+                    <td>{{contacto.direccion}}</td>
+                    <td>{{contacto.telefono}}</td>
+                    <td>
+                        <a ui-sref="participante-detail({id:contacto.participante.id})">{{contacto.participante.id}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="contacto-detail({id:contacto.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="contacto.edit({id:contacto.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="contacto.delete({id:contacto.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

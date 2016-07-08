@@ -1,0 +1,24 @@
+{
+    "cumminsApp": {
+        "proyectoConcurso" : {
+            "home": {
+                "title": "Proyecto Concursos",
+                "createLabel": "Create a new Proyecto Concurso",
+                "createOrEditLabel": "Create or edit a Proyecto Concurso",
+                "search": "Search for Proyecto Concurso"
+            },
+            "created": "A new Proyecto Concurso is created with identifier {{ param }}",
+            "updated": "A Proyecto Concurso is updated with identifier {{ param }}",
+            "deleted": "A Proyecto Concurso is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Proyecto Concurso {{ id }}?"
+            },
+            "detail": {
+                "title": "Proyecto Concurso"
+            },
+            "estatus": "Estatus",
+            "etapa": "Etapa",
+            "proyecto": "Proyecto"
+        }
+    }
+}

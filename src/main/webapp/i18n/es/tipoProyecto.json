@@ -1,0 +1,9 @@
+{
+    "cumminsApp": {
+        "TipoProyecto" : {
+            "null": "",
+            "EXISTENTE": "EXISTENTE",
+            "NUEVO": "NUEVO"
+        }
+    }
+}

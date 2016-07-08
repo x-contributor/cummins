@@ -1,0 +1,77 @@
+<div>
+    <h2 translate="cumminsApp.participanteDescripcion.home.title">Participante Descripcions</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="participante-descripcion.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  translate="cumminsApp.participanteDescripcion.home.createLabel">
+                        Create new Participante Descripcion
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                    <th><span translate="global.field.id">ID</span></th>
+                    <th><span translate="cumminsApp.participanteDescripcion.misionVision">Mision Vision</span></th>
+                    <th><span translate="cumminsApp.participanteDescripcion.aniosOperacion">Anios Operacion</span></th>
+                    <th><span translate="cumminsApp.participanteDescripcion.programasServcios">Programas Servcios</span></th>
+                    <th><span translate="cumminsApp.participanteDescripcion.resultadosLogros">Resultados Logros</span></th>
+                    <th><span translate="cumminsApp.participanteDescripcion.numeroBeneficiarios">Numero Beneficiarios</span></th>
+                    <th><span translate="cumminsApp.participanteDescripcion.comentarios">Comentarios</span></th>
+                    <th><span translate="cumminsApp.participanteDescripcion.logotipo">Logotipo</span></th>
+                    <th><span translate="cumminsApp.participanteDescripcion.participante">Participante</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="participanteDescripcion in vm.participanteDescripcions track by participanteDescripcion.id">
+                    <td><a ui-sref="participante-descripcion-detail({id:participanteDescripcion.id})">{{participanteDescripcion.id}}</a></td>
+                    <td>{{participanteDescripcion.misionVision}}</td>
+                    <td>{{participanteDescripcion.aniosOperacion}}</td>
+                    <td>{{participanteDescripcion.programasServcios}}</td>
+                    <td>{{participanteDescripcion.resultadosLogros}}</td>
+                    <td>{{participanteDescripcion.numeroBeneficiarios}}</td>
+                    <td>{{participanteDescripcion.comentarios}}</td>
+                    <td>
+                        <a ng-if="participanteDescripcion.logotipo" ng-click="vm.openFile(participanteDescripcion.logotipoContentType, participanteDescripcion.logotipo)">
+                            <img data-ng-src="{{'data:' + participanteDescripcion.logotipoContentType + ';base64,' + participanteDescripcion.logotipo}}" style="max-height: 30px;"/>
+                        </a>
+                        <span ng-if="participanteDescripcion.logotipo">{{participanteDescripcion.logotipoContentType}}, {{vm.byteSize(participanteDescripcion.logotipo)}}</span>
+                    </td>
+                    <td>
+                        <a ui-sref="participante-detail({id:participanteDescripcion.participante.id})">{{participanteDescripcion.participante.id}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="participante-descripcion-detail({id:participanteDescripcion.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="participante-descripcion.edit({id:participanteDescripcion.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="participante-descripcion.delete({id:participanteDescripcion.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,45 @@
+{
+  "relationships": [
+    {
+      "relationshipId": 1,
+      "relationshipType": "one-to-one",
+      "relationshipName": "participante",
+      "otherEntityName": "participante",
+      "otherEntityField": "id",
+      "ownerSide": true,
+      "otherEntityRelationshipName": "contacto"
+    }
+  ],
+  "fields": [
+    {
+      "fieldId": 1,
+      "fieldName": "nombre",
+      "fieldType": "String"
+    },
+    {
+      "fieldId": 2,
+      "fieldName": "email",
+      "fieldType": "String"
+    },
+    {
+      "fieldId": 3,
+      "fieldName": "cargo",
+      "fieldType": "String"
+    },
+    {
+      "fieldId": 4,
+      "fieldName": "direccion",
+      "fieldType": "String"
+    },
+    {
+      "fieldId": 5,
+      "fieldName": "telefono",
+      "fieldType": "String"
+    }
+  ],
+  "changelogDate": "20160707225514",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "entityTableName": "contacto"
+}

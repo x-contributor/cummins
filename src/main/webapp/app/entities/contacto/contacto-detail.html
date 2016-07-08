@@ -1,0 +1,38 @@
+
+<div>
+    <h2><span translate="cumminsApp.contacto.detail.title">Contacto</span> {{vm.contacto.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span translate="cumminsApp.contacto.nombre">Nombre</span></dt>
+        <dd>
+            <span>{{vm.contacto.nombre}}</span>
+        </dd>
+        <dt><span translate="cumminsApp.contacto.email">Email</span></dt>
+        <dd>
+            <span>{{vm.contacto.email}}</span>
+        </dd>
+        <dt><span translate="cumminsApp.contacto.cargo">Cargo</span></dt>
+        <dd>
+            <span>{{vm.contacto.cargo}}</span>
+        </dd>
+        <dt><span translate="cumminsApp.contacto.direccion">Direccion</span></dt>
+        <dd>
+            <span>{{vm.contacto.direccion}}</span>
+        </dd>
+        <dt><span translate="cumminsApp.contacto.telefono">Telefono</span></dt>
+        <dd>
+            <span>{{vm.contacto.telefono}}</span>
+        </dd>
+        <dt><span translate="cumminsApp.contacto.participante">Participante</span></dt>
+        <dd>
+            <a ui-sref="participante-detail({id:vm.contacto.participante.id})">{{vm.contacto.participante.id}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

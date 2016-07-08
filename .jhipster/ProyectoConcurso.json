@@ -1,0 +1,32 @@
+{
+  "relationships": [
+    {
+      "relationshipId": 1,
+      "relationshipType": "one-to-one",
+      "relationshipName": "proyecto",
+      "otherEntityName": "proyecto",
+      "otherEntityField": "id",
+      "ownerSide": true,
+      "otherEntityRelationshipName": "proyectoConcurso"
+    }
+  ],
+  "fields": [
+    {
+      "fieldId": 1,
+      "fieldName": "estatus",
+      "fieldType": "EstatusProyecto",
+      "fieldValues": "ACEPTADO,RECHAZADO"
+    },
+    {
+      "fieldId": 2,
+      "fieldName": "etapa",
+      "fieldType": "EtapaProyecto",
+      "fieldValues": "REGISTRADO,PRIMER_FILTRO,SEGUNDO_FILTRO"
+    }
+  ],
+  "changelogDate": "20160707225518",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "entityTableName": "proyecto_concurso"
+}

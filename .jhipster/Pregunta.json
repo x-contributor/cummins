@@ -1,0 +1,44 @@
+{
+  "relationships": [
+    {
+      "relationshipId": 1,
+      "relationshipType": "many-to-one",
+      "relationshipName": "seccion",
+      "otherEntityName": "preguntaSeccion",
+      "otherEntityField": "id"
+    }
+  ],
+  "fields": [
+    {
+      "fieldId": 1,
+      "fieldName": "tipoPregunta",
+      "fieldType": "TipoPregunta",
+      "fieldValues": "SI_NO,CANTIDAD,DINERO,ABIERTA"
+    },
+    {
+      "fieldId": 2,
+      "fieldName": "pregunta",
+      "fieldType": "String"
+    },
+    {
+      "fieldId": 3,
+      "fieldName": "ayuda",
+      "fieldType": "String"
+    },
+    {
+      "fieldId": 4,
+      "fieldName": "max",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldId": 5,
+      "fieldName": "min",
+      "fieldType": "Integer"
+    }
+  ],
+  "changelogDate": "20160707225521",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "entityTableName": "pregunta"
+}

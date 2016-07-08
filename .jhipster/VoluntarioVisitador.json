@@ -1,0 +1,28 @@
+{
+  "relationships": [
+    {
+      "relationshipId": 1,
+      "relationshipType": "one-to-many",
+      "relationshipName": "proyecto",
+      "otherEntityName": "proyecto",
+      "otherEntityRelationshipName": "voluntarioVisitador"
+    }
+  ],
+  "fields": [
+    {
+      "fieldId": 1,
+      "fieldName": "nombre",
+      "fieldType": "String"
+    },
+    {
+      "fieldId": 2,
+      "fieldName": "telefono",
+      "fieldType": "String"
+    }
+  ],
+  "changelogDate": "20160707225515",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "entityTableName": "voluntario_visitador"
+}

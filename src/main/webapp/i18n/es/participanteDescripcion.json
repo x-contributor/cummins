@@ -1,0 +1,29 @@
+{
+    "cumminsApp": {
+        "participanteDescripcion" : {
+            "home": {
+                "title": "Participante Descripcions",
+                "createLabel": "Crear nuevo Participante Descripcion",
+                "createOrEditLabel": "Crear o editar Participante Descripcion",
+                "search": "Search for Participante Descripcion"
+            },
+            "created": "Un nuevo Participante Descripcion ha sido creado con el identificador {{ param }}",
+            "updated": "Un Participante Descripcion ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Participante Descripcion ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Participante Descripcion {{ id }}?"
+            },
+            "detail": {
+                "title": "Participante Descripcion"
+            },
+            "misionVision": "Mision Vision",
+            "aniosOperacion": "Anios Operacion",
+            "programasServcios": "Programas Servcios",
+            "resultadosLogros": "Resultados Logros",
+            "numeroBeneficiarios": "Numero Beneficiarios",
+            "comentarios": "Comentarios",
+            "logotipo": "Logotipo",
+            "participante": "Participante"
+        }
+    }
+}

@@ -1,0 +1,34 @@
+
+<div>
+    <h2><span translate="cumminsApp.proyecto.detail.title">Proyecto</span> {{vm.proyecto.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span translate="cumminsApp.proyecto.proyecto">Proyecto</span></dt>
+        <dd>
+            <span>{{vm.proyecto.proyecto}}</span>
+        </dd>
+        <dt><span translate="cumminsApp.proyecto.tematica">Tematica</span></dt>
+        <dd>
+            <span translate="{{'cumminsApp.Tematica.' + vm.proyecto.tematica}}">{{vm.proyecto.tematica}}</span>
+        </dd>
+        <dt><span translate="cumminsApp.proyecto.tipoProyectto">Tipo Proyectto</span></dt>
+        <dd>
+            <span translate="{{'cumminsApp.TipoProyecto.' + vm.proyecto.tipoProyectto}}">{{vm.proyecto.tipoProyectto}}</span>
+        </dd>
+        <dt><span translate="cumminsApp.proyecto.voluntarioVisitador">Voluntario Visitador</span></dt>
+        <dd>
+            <a ui-sref="voluntario-visitador-detail({id:vm.proyecto.voluntarioVisitador.id})">{{vm.proyecto.voluntarioVisitador.id}}</a>
+        </dd>
+        <dt><span translate="cumminsApp.proyecto.participante">Participante</span></dt>
+        <dd>
+            <a ui-sref="participante-detail({id:vm.proyecto.participante.id})">{{vm.proyecto.participante.id}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

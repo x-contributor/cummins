@@ -1,0 +1,26 @@
+{
+    "cumminsApp": {
+        "proyecto" : {
+            "home": {
+                "title": "Proyectos",
+                "createLabel": "Crear nuevo Proyecto",
+                "createOrEditLabel": "Crear o editar Proyecto",
+                "search": "Search for Proyecto"
+            },
+            "created": "Un nuevo Proyecto ha sido creado con el identificador {{ param }}",
+            "updated": "Un Proyecto ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Proyecto ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Proyecto {{ id }}?"
+            },
+            "detail": {
+                "title": "Proyecto"
+            },
+            "proyecto": "Proyecto",
+            "tematica": "Tematica",
+            "tipoProyectto": "Tipo Proyectto",
+            "voluntarioVisitador": "Voluntario Visitador",
+            "participante": "Participante"
+        }
+    }
+}

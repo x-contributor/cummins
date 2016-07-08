@@ -1,0 +1,10 @@
+{
+    "cumminsApp": {
+        "EtapaProyecto" : {
+            "null": "",
+            "REGISTRADO": "REGISTRADO",
+            "PRIMER_FILTRO": "PRIMER_FILTRO",
+            "SEGUNDO_FILTRO": "SEGUNDO_FILTRO"
+        }
+    }
+}

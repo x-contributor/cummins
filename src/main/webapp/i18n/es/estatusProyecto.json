@@ -1,0 +1,9 @@
+{
+    "cumminsApp": {
+        "EstatusProyecto" : {
+            "null": "",
+            "ACEPTADO": "ACEPTADO",
+            "RECHAZADO": "RECHAZADO"
+        }
+    }
+}

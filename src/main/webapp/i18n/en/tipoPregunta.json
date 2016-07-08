@@ -1,0 +1,11 @@
+{
+    "cumminsApp": {
+        "TipoPregunta" : {
+            "null": "",
+            "SI_NO": "SI_NO",
+            "CANTIDAD": "CANTIDAD",
+            "DINERO": "DINERO",
+            "ABIERTA": "ABIERTA"
+        }
+    }
+}
