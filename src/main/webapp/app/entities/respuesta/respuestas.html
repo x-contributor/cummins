@@ -20,7 +20,6 @@
                 <tr>
                     <th><span translate="global.field.id">ID</span></th>
                     <th><span translate="cumminsApp.respuesta.respuesta">Respuesta</span></th>
-                    <th><span translate="cumminsApp.respuesta.pregunta">Pregunta</span></th>
                     <th><span translate="cumminsApp.respuesta.proyecto">Proyecto</span></th>
                     <th></th>
                 </tr>
@@ -29,9 +28,6 @@
                 <tr ng-repeat="respuesta in vm.respuestas track by respuesta.id">
                     <td><a ui-sref="respuesta-detail({id:respuesta.id})">{{respuesta.id}}</a></td>
                     <td>{{respuesta.respuesta}}</td>
-                    <td>
-                        <a ui-sref="pregunta-detail({id:respuesta.pregunta.id})">{{respuesta.pregunta.id}}</a>
-                    </td>
                     <td>
                         <a ui-sref="proyecto-detail({id:respuesta.proyecto.id})">{{respuesta.proyecto.id}}</a>
                     </td>

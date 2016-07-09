@@ -20,10 +20,13 @@
                 <tr>
                     <th><span translate="global.field.id">ID</span></th>
                     <th><span translate="cumminsApp.preguntaSeccion.preguntaTitulo">Pregunta Titulo</span></th>
+                    <th><span translate="cumminsApp.preguntaSeccion.preguntaInstrucciones">Pregunta Instrucciones</span></th>
+                    <th><span translate="cumminsApp.preguntaSeccion.preguntaAyuda">Pregunta Ayuda</span></th>
                     <th><span translate="cumminsApp.preguntaSeccion.consecutivoSeccion">Consecutivo Seccion</span></th>
                     <th><span translate="cumminsApp.preguntaSeccion.tipoProyecto">Tipo Proyecto</span></th>
                     <th><span translate="cumminsApp.preguntaSeccion.minimoRespuesta">Minimo Respuesta</span></th>
                     <th><span translate="cumminsApp.preguntaSeccion.maximoRespuesta">Maximo Respuesta</span></th>
+                    <th><span translate="cumminsApp.preguntaSeccion.sumaTotal">Suma Total</span></th>
                     <th></th>
                 </tr>
             </thead>
@@ -31,10 +34,13 @@
                 <tr ng-repeat="preguntaSeccion in vm.preguntaSeccions track by preguntaSeccion.id">
                     <td><a ui-sref="pregunta-seccion-detail({id:preguntaSeccion.id})">{{preguntaSeccion.id}}</a></td>
                     <td>{{preguntaSeccion.preguntaTitulo}}</td>
+                    <td>{{preguntaSeccion.preguntaInstrucciones}}</td>
+                    <td>{{preguntaSeccion.preguntaAyuda}}</td>
                     <td>{{preguntaSeccion.consecutivoSeccion}}</td>
                     <td translate="{{'cumminsApp.TipoProyecto.' + preguntaSeccion.tipoProyecto}}">{{preguntaSeccion.tipoProyecto}}</td>
                     <td>{{preguntaSeccion.minimoRespuesta}}</td>
                     <td>{{preguntaSeccion.maximoRespuesta}}</td>
+                    <td>{{preguntaSeccion.sumaTotal}}</td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">
                             <button type="submit"

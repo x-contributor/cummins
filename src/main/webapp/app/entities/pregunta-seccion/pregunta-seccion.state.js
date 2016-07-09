@@ -74,10 +74,13 @@
                         entity: function () {
                             return {
                                 preguntaTitulo: null,
+                                preguntaInstrucciones: null,
+                                preguntaAyuda: null,
                                 consecutivoSeccion: null,
                                 tipoProyecto: null,
                                 minimoRespuesta: null,
                                 maximoRespuesta: null,
+                                sumaTotal: null,
                                 id: null
                             };
                         }

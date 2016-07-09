@@ -42,7 +42,9 @@ enum Tematica {
 }
 
 enum TipoProyecto {
-	EXISTENTE, NUEVO
+	TODOS,
+    EXISTENTE, 
+    NUEVO
 }
 
 entity Respuesta {
@@ -51,10 +53,13 @@ entity Respuesta {
 
 entity PreguntaSeccion {
     preguntaTitulo String,
+    preguntaInstrucciones String,
+    preguntaAyuda String,
     consecutivoSeccion Integer,
     tipoProyecto TipoProyecto,
     minimoRespuesta Integer,
-    maximoRespuesta Integer
+    maximoRespuesta Integer,
+    sumaTotal Integer
 }
 
 enum TipoPregunta {
@@ -63,6 +68,7 @@ enum TipoPregunta {
 
 entity Pregunta {
     tipoPregunta TipoPregunta,
+    consecutivo Integer,
     pregunta String,
     ayuda String,
     max Integer,
@@ -80,14 +86,13 @@ enum EstatusProyecto {
 relationship OneToOne {
 	Contacto{participante} to Participante{contacto},
     ParticipanteDescripcion{participante} to Participante{participanteDescripcion},
-    Respuesta{pregunta} to Pregunta,
     ProyectoConcurso{proyecto} to Proyecto
 }
 
 relationship OneToMany {
 	Participante{proyecto} to Proyecto{participante},
     PreguntaSeccion{pregunta} to Pregunta{seccion},
-    VoluntarioVisitador{proyecto} to Proyecto
+    VoluntarioVisitador{proyecto} to Proyecto{visitador	}
 }
 
 relationship ManyToOne {

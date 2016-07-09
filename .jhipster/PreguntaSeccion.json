@@ -16,23 +16,38 @@
     },
     {
       "fieldId": 2,
+      "fieldName": "preguntaInstrucciones",
+      "fieldType": "String"
+    },
+    {
+      "fieldId": 3,
+      "fieldName": "preguntaAyuda",
+      "fieldType": "String"
+    },
+    {
+      "fieldId": 4,
       "fieldName": "consecutivoSeccion",
       "fieldType": "Integer"
     },
     {
-      "fieldId": 3,
+      "fieldId": 5,
       "fieldName": "tipoProyecto",
       "fieldType": "TipoProyecto",
-      "fieldValues": "EXISTENTE,NUEVO"
+      "fieldValues": "TODOS,EXISTENTE,NUEVO"
     },
     {
-      "fieldId": 4,
+      "fieldId": 6,
       "fieldName": "minimoRespuesta",
       "fieldType": "Integer"
     },
     {
-      "fieldId": 5,
+      "fieldId": 7,
       "fieldName": "maximoRespuesta",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldId": 8,
+      "fieldName": "sumaTotal",
       "fieldType": "Integer"
     }
   ],

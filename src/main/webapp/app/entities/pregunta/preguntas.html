@@ -20,6 +20,7 @@
                 <tr>
                     <th><span translate="global.field.id">ID</span></th>
                     <th><span translate="cumminsApp.pregunta.tipoPregunta">Tipo Pregunta</span></th>
+                    <th><span translate="cumminsApp.pregunta.consecutivo">Consecutivo</span></th>
                     <th><span translate="cumminsApp.pregunta.pregunta">Pregunta</span></th>
                     <th><span translate="cumminsApp.pregunta.ayuda">Ayuda</span></th>
                     <th><span translate="cumminsApp.pregunta.max">Max</span></th>
@@ -32,6 +33,7 @@
                 <tr ng-repeat="pregunta in vm.preguntas track by pregunta.id">
                     <td><a ui-sref="pregunta-detail({id:pregunta.id})">{{pregunta.id}}</a></td>
                     <td translate="{{'cumminsApp.TipoPregunta.' + pregunta.tipoPregunta}}">{{pregunta.tipoPregunta}}</td>
+                    <td>{{pregunta.consecutivo}}</td>
                     <td>{{pregunta.pregunta}}</td>
                     <td>{{pregunta.ayuda}}</td>
                     <td>{{pregunta.max}}</td>

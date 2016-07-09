@@ -22,8 +22,8 @@
                     <th><span translate="cumminsApp.proyecto.proyecto">Proyecto</span></th>
                     <th><span translate="cumminsApp.proyecto.tematica">Tematica</span></th>
                     <th><span translate="cumminsApp.proyecto.tipoProyectto">Tipo Proyectto</span></th>
-                    <th><span translate="cumminsApp.proyecto.voluntarioVisitador">Voluntario Visitador</span></th>
                     <th><span translate="cumminsApp.proyecto.participante">Participante</span></th>
+                    <th><span translate="cumminsApp.proyecto.visitador">Visitador</span></th>
                     <th></th>
                 </tr>
             </thead>
@@ -34,10 +34,10 @@
                     <td translate="{{'cumminsApp.Tematica.' + proyecto.tematica}}">{{proyecto.tematica}}</td>
                     <td translate="{{'cumminsApp.TipoProyecto.' + proyecto.tipoProyectto}}">{{proyecto.tipoProyectto}}</td>
                     <td>
-                        <a ui-sref="voluntario-visitador-detail({id:proyecto.voluntarioVisitador.id})">{{proyecto.voluntarioVisitador.id}}</a>
+                        <a ui-sref="participante-detail({id:proyecto.participante.id})">{{proyecto.participante.id}}</a>
                     </td>
                     <td>
-                        <a ui-sref="participante-detail({id:proyecto.participante.id})">{{proyecto.participante.id}}</a>
+                        <a ui-sref="voluntario-visitador-detail({id:proyecto.visitador.id})">{{proyecto.visitador.id}}</a>
                     </td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">

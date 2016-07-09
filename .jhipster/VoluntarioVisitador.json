@@ -5,7 +5,7 @@
       "relationshipType": "one-to-many",
       "relationshipName": "proyecto",
       "otherEntityName": "proyecto",
-      "otherEntityRelationshipName": "voluntarioVisitador"
+      "otherEntityRelationshipName": "visitador"
     }
   ],
   "fields": [

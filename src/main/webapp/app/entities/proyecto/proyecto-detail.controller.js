@@ -5,9 +5,9 @@
         .module('cumminsApp')
         .controller('ProyectoDetailController', ProyectoDetailController);
 
-    ProyectoDetailController.$inject = ['$scope', '$rootScope', '$stateParams', 'entity', 'Proyecto', 'VoluntarioVisitador', 'Participante'];
+    ProyectoDetailController.$inject = ['$scope', '$rootScope', '$stateParams', 'entity', 'Proyecto', 'Participante', 'VoluntarioVisitador'];
 
-    function ProyectoDetailController($scope, $rootScope, $stateParams, entity, Proyecto, VoluntarioVisitador, Participante) {
+    function ProyectoDetailController($scope, $rootScope, $stateParams, entity, Proyecto, Participante, VoluntarioVisitador) {
         var vm = this;
 
         vm.proyecto = entity;

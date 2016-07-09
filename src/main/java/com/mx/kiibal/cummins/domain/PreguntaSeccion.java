@@ -29,6 +29,12 @@ public class PreguntaSeccion implements Serializable {
     @Column(name = "pregunta_titulo")
     private String preguntaTitulo;
 
+    @Column(name = "pregunta_instrucciones")
+    private String preguntaInstrucciones;
+
+    @Column(name = "pregunta_ayuda")
+    private String preguntaAyuda;
+
     @Column(name = "consecutivo_seccion")
     private Integer consecutivoSeccion;
 
@@ -41,6 +47,9 @@ public class PreguntaSeccion implements Serializable {
 
     @Column(name = "maximo_respuesta")
     private Integer maximoRespuesta;
+
+    @Column(name = "suma_total")
+    private Integer sumaTotal;
 
     @OneToMany(mappedBy = "seccion")
     @JsonIgnore
@@ -61,6 +70,22 @@ public class PreguntaSeccion implements Serializable {
 
     public void setPreguntaTitulo(String preguntaTitulo) {
         this.preguntaTitulo = preguntaTitulo;
+    }
+
+    public String getPreguntaInstrucciones() {
+        return preguntaInstrucciones;
+    }
+
+    public void setPreguntaInstrucciones(String preguntaInstrucciones) {
+        this.preguntaInstrucciones = preguntaInstrucciones;
+    }
+
+    public String getPreguntaAyuda() {
+        return preguntaAyuda;
+    }
+
+    public void setPreguntaAyuda(String preguntaAyuda) {
+        this.preguntaAyuda = preguntaAyuda;
     }
 
     public Integer getConsecutivoSeccion() {
@@ -93,6 +118,14 @@ public class PreguntaSeccion implements Serializable {
 
     public void setMaximoRespuesta(Integer maximoRespuesta) {
         this.maximoRespuesta = maximoRespuesta;
+    }
+
+    public Integer getSumaTotal() {
+        return sumaTotal;
+    }
+
+    public void setSumaTotal(Integer sumaTotal) {
+        this.sumaTotal = sumaTotal;
     }
 
     public Set<Pregunta> getPreguntas() {
@@ -128,10 +161,13 @@ public class PreguntaSeccion implements Serializable {
         return "PreguntaSeccion{" +
             "id=" + id +
             ", preguntaTitulo='" + preguntaTitulo + "'" +
+            ", preguntaInstrucciones='" + preguntaInstrucciones + "'" +
+            ", preguntaAyuda='" + preguntaAyuda + "'" +
             ", consecutivoSeccion='" + consecutivoSeccion + "'" +
             ", tipoProyecto='" + tipoProyecto + "'" +
             ", minimoRespuesta='" + minimoRespuesta + "'" +
             ", maximoRespuesta='" + maximoRespuesta + "'" +
+            ", sumaTotal='" + sumaTotal + "'" +
             '}';
     }
 }

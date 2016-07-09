@@ -45,6 +45,9 @@ public class PreguntaResourceIntTest {
 
     private static final TipoPregunta DEFAULT_TIPO_PREGUNTA = TipoPregunta.SI_NO;
     private static final TipoPregunta UPDATED_TIPO_PREGUNTA = TipoPregunta.CANTIDAD;
+
+    private static final Integer DEFAULT_CONSECUTIVO = 1;
+    private static final Integer UPDATED_CONSECUTIVO = 2;
     private static final String DEFAULT_PREGUNTA = "AAAAA";
     private static final String UPDATED_PREGUNTA = "BBBBB";
     private static final String DEFAULT_AYUDA = "AAAAA";
@@ -83,6 +86,7 @@ public class PreguntaResourceIntTest {
     public void initTest() {
         pregunta = new Pregunta();
         pregunta.setTipoPregunta(DEFAULT_TIPO_PREGUNTA);
+        pregunta.setConsecutivo(DEFAULT_CONSECUTIVO);
         pregunta.setPregunta(DEFAULT_PREGUNTA);
         pregunta.setAyuda(DEFAULT_AYUDA);
         pregunta.setMax(DEFAULT_MAX);
@@ -106,6 +110,7 @@ public class PreguntaResourceIntTest {
         assertThat(preguntas).hasSize(databaseSizeBeforeCreate + 1);
         Pregunta testPregunta = preguntas.get(preguntas.size() - 1);
         assertThat(testPregunta.getTipoPregunta()).isEqualTo(DEFAULT_TIPO_PREGUNTA);
+        assertThat(testPregunta.getConsecutivo()).isEqualTo(DEFAULT_CONSECUTIVO);
         assertThat(testPregunta.getPregunta()).isEqualTo(DEFAULT_PREGUNTA);
         assertThat(testPregunta.getAyuda()).isEqualTo(DEFAULT_AYUDA);
         assertThat(testPregunta.getMax()).isEqualTo(DEFAULT_MAX);
@@ -124,6 +129,7 @@ public class PreguntaResourceIntTest {
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.[*].id").value(hasItem(pregunta.getId().intValue())))
                 .andExpect(jsonPath("$.[*].tipoPregunta").value(hasItem(DEFAULT_TIPO_PREGUNTA.toString())))
+                .andExpect(jsonPath("$.[*].consecutivo").value(hasItem(DEFAULT_CONSECUTIVO)))
                 .andExpect(jsonPath("$.[*].pregunta").value(hasItem(DEFAULT_PREGUNTA.toString())))
                 .andExpect(jsonPath("$.[*].ayuda").value(hasItem(DEFAULT_AYUDA.toString())))
                 .andExpect(jsonPath("$.[*].max").value(hasItem(DEFAULT_MAX)))
@@ -142,6 +148,7 @@ public class PreguntaResourceIntTest {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON))
             .andExpect(jsonPath("$.id").value(pregunta.getId().intValue()))
             .andExpect(jsonPath("$.tipoPregunta").value(DEFAULT_TIPO_PREGUNTA.toString()))
+            .andExpect(jsonPath("$.consecutivo").value(DEFAULT_CONSECUTIVO))
             .andExpect(jsonPath("$.pregunta").value(DEFAULT_PREGUNTA.toString()))
             .andExpect(jsonPath("$.ayuda").value(DEFAULT_AYUDA.toString()))
             .andExpect(jsonPath("$.max").value(DEFAULT_MAX))
@@ -167,6 +174,7 @@ public class PreguntaResourceIntTest {
         Pregunta updatedPregunta = new Pregunta();
         updatedPregunta.setId(pregunta.getId());
         updatedPregunta.setTipoPregunta(UPDATED_TIPO_PREGUNTA);
+        updatedPregunta.setConsecutivo(UPDATED_CONSECUTIVO);
         updatedPregunta.setPregunta(UPDATED_PREGUNTA);
         updatedPregunta.setAyuda(UPDATED_AYUDA);
         updatedPregunta.setMax(UPDATED_MAX);
@@ -182,6 +190,7 @@ public class PreguntaResourceIntTest {
         assertThat(preguntas).hasSize(databaseSizeBeforeUpdate);
         Pregunta testPregunta = preguntas.get(preguntas.size() - 1);
         assertThat(testPregunta.getTipoPregunta()).isEqualTo(UPDATED_TIPO_PREGUNTA);
+        assertThat(testPregunta.getConsecutivo()).isEqualTo(UPDATED_CONSECUTIVO);
         assertThat(testPregunta.getPregunta()).isEqualTo(UPDATED_PREGUNTA);
         assertThat(testPregunta.getAyuda()).isEqualTo(UPDATED_AYUDA);
         assertThat(testPregunta.getMax()).isEqualTo(UPDATED_MAX);

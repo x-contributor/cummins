@@ -37,10 +37,10 @@ public class Proyecto implements Serializable {
     private TipoProyecto tipoProyectto;
 
     @ManyToOne
-    private VoluntarioVisitador voluntarioVisitador;
+    private Participante participante;
 
     @ManyToOne
-    private Participante participante;
+    private VoluntarioVisitador visitador;
 
     public Long getId() {
         return id;
@@ -74,20 +74,20 @@ public class Proyecto implements Serializable {
         this.tipoProyectto = tipoProyectto;
     }
 
-    public VoluntarioVisitador getVoluntarioVisitador() {
-        return voluntarioVisitador;
-    }
-
-    public void setVoluntarioVisitador(VoluntarioVisitador voluntarioVisitador) {
-        this.voluntarioVisitador = voluntarioVisitador;
-    }
-
     public Participante getParticipante() {
         return participante;
     }
 
     public void setParticipante(Participante participante) {
         this.participante = participante;
+    }
+
+    public VoluntarioVisitador getVisitador() {
+        return visitador;
+    }
+
+    public void setVisitador(VoluntarioVisitador voluntarioVisitador) {
+        this.visitador = voluntarioVisitador;
     }
 
     @Override

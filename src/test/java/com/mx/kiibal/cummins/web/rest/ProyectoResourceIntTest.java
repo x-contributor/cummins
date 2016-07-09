@@ -49,8 +49,8 @@ public class ProyectoResourceIntTest {
     private static final Tematica DEFAULT_TEMATICA = Tematica.EDUCACION;
     private static final Tematica UPDATED_TEMATICA = Tematica.JUSTICIA_SOCIAL;
 
-    private static final TipoProyecto DEFAULT_TIPO_PROYECTTO = TipoProyecto.EXISTENTE;
-    private static final TipoProyecto UPDATED_TIPO_PROYECTTO = TipoProyecto.NUEVO;
+    private static final TipoProyecto DEFAULT_TIPO_PROYECTTO = TipoProyecto.TODOS;
+    private static final TipoProyecto UPDATED_TIPO_PROYECTTO = TipoProyecto.EXISTENTE;
 
     @Inject
     private ProyectoRepository proyectoRepository;
