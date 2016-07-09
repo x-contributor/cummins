@@ -24,9 +24,7 @@
             <column name="respuesta" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-                        <column name="pregunta_id" type="bigint">
-                <constraints unique="true" nullable="true" />
-            </column>
+            
             <column name="proyecto_id" type="bigint">
                 <constraints nullable="true" />
             </column>

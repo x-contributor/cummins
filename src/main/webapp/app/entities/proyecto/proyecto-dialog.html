@@ -30,20 +30,21 @@
         <div class="form-group">
             <label class="control-label" translate="cumminsApp.proyecto.tipoProyectto" for="field_tipoProyectto">Tipo Proyectto</label>
             <select class="form-control" name="tipoProyectto" ng-model="vm.proyecto.tipoProyectto" id="field_tipoProyectto">
+                <option value="TODOS" translate="cumminsApp.TipoProyecto.TODOS">TODOS</option>
                 <option value="EXISTENTE" translate="cumminsApp.TipoProyecto.EXISTENTE">EXISTENTE</option>
                 <option value="NUEVO" translate="cumminsApp.TipoProyecto.NUEVO">NUEVO</option>
             </select>
         </div>
 
         <div class="form-group">
-            <label translate="cumminsApp.proyecto.voluntarioVisitador" for="field_voluntarioVisitador">Voluntario Visitador</label>
-            <select class="form-control" id="field_voluntarioVisitador" name="voluntarioVisitador" ng-model="vm.proyecto.voluntarioVisitador" ng-options="voluntarioVisitador as voluntarioVisitador.id for voluntarioVisitador in vm.voluntariovisitadors track by voluntarioVisitador.id">
+            <label translate="cumminsApp.proyecto.participante" for="field_participante">Participante</label>
+            <select class="form-control" id="field_participante" name="participante" ng-model="vm.proyecto.participante" ng-options="participante as participante.id for participante in vm.participantes track by participante.id">
                 <option value=""></option>
             </select>
         </div>
         <div class="form-group">
-            <label translate="cumminsApp.proyecto.participante" for="field_participante">Participante</label>
-            <select class="form-control" id="field_participante" name="participante" ng-model="vm.proyecto.participante" ng-options="participante as participante.id for participante in vm.participantes track by participante.id">
+            <label translate="cumminsApp.proyecto.visitador" for="field_visitador">Visitador</label>
+            <select class="form-control" id="field_visitador" name="visitador" ng-model="vm.proyecto.visitador" ng-options="voluntarioVisitador as voluntarioVisitador.id for voluntarioVisitador in vm.voluntariovisitadors track by voluntarioVisitador.id">
                 <option value=""></option>
             </select>
         </div>

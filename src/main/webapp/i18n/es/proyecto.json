@@ -19,8 +19,8 @@
             "proyecto": "Proyecto",
             "tematica": "Tematica",
             "tipoProyectto": "Tipo Proyectto",
-            "voluntarioVisitador": "Voluntario Visitador",
-            "participante": "Participante"
+            "participante": "Participante",
+            "visitador": "Visitador"
         }
     }
 }

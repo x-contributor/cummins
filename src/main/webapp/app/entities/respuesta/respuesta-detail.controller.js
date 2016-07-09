@@ -5,9 +5,9 @@
         .module('cumminsApp')
         .controller('RespuestaDetailController', RespuestaDetailController);
 
-    RespuestaDetailController.$inject = ['$scope', '$rootScope', '$stateParams', 'entity', 'Respuesta', 'Pregunta', 'Proyecto'];
+    RespuestaDetailController.$inject = ['$scope', '$rootScope', '$stateParams', 'entity', 'Respuesta', 'Proyecto'];
 
-    function RespuestaDetailController($scope, $rootScope, $stateParams, entity, Respuesta, Pregunta, Proyecto) {
+    function RespuestaDetailController($scope, $rootScope, $stateParams, entity, Respuesta, Proyecto) {
         var vm = this;
 
         vm.respuesta = entity;

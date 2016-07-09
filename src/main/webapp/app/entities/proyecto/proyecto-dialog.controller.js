@@ -5,16 +5,16 @@
         .module('cumminsApp')
         .controller('ProyectoDialogController', ProyectoDialogController);
 
-    ProyectoDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'Proyecto', 'VoluntarioVisitador', 'Participante'];
+    ProyectoDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'Proyecto', 'Participante', 'VoluntarioVisitador'];
 
-    function ProyectoDialogController ($timeout, $scope, $stateParams, $uibModalInstance, entity, Proyecto, VoluntarioVisitador, Participante) {
+    function ProyectoDialogController ($timeout, $scope, $stateParams, $uibModalInstance, entity, Proyecto, Participante, VoluntarioVisitador) {
         var vm = this;
 
         vm.proyecto = entity;
         vm.clear = clear;
         vm.save = save;
-        vm.voluntariovisitadors = VoluntarioVisitador.query();
         vm.participantes = Participante.query();
+        vm.voluntariovisitadors = VoluntarioVisitador.query();
 
         $timeout(function (){
             angular.element('.form-group:eq(1)>input').focus();

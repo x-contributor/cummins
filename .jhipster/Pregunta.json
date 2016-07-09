@@ -17,21 +17,26 @@
     },
     {
       "fieldId": 2,
+      "fieldName": "consecutivo",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldId": 3,
       "fieldName": "pregunta",
       "fieldType": "String"
     },
     {
-      "fieldId": 3,
+      "fieldId": 4,
       "fieldName": "ayuda",
       "fieldType": "String"
     },
     {
-      "fieldId": 4,
+      "fieldId": 5,
       "fieldName": "max",
       "fieldType": "Integer"
     },
     {
-      "fieldId": 5,
+      "fieldId": 6,
       "fieldName": "min",
       "fieldType": "Integer"
     }

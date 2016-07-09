@@ -74,6 +74,7 @@
                         entity: function () {
                             return {
                                 tipoPregunta: null,
+                                consecutivo: null,
                                 pregunta: null,
                                 ayuda: null,
                                 max: null,

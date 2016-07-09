@@ -67,7 +67,7 @@ class PreguntaSeccionGatlingTest extends Simulation {
             .exec(http("Create new preguntaSeccion")
             .post("/api/pregunta-seccions")
             .headers(headers_http_authenticated)
-            .body(StringBody("""{"id":null, "preguntaTitulo":"SAMPLE_TEXT", "consecutivoSeccion":"0", "tipoProyecto":null, "minimoRespuesta":"0", "maximoRespuesta":"0"}""")).asJSON
+            .body(StringBody("""{"id":null, "preguntaTitulo":"SAMPLE_TEXT", "preguntaInstrucciones":"SAMPLE_TEXT", "preguntaAyuda":"SAMPLE_TEXT", "consecutivoSeccion":"0", "tipoProyecto":null, "minimoRespuesta":"0", "maximoRespuesta":"0", "sumaTotal":"0"}""")).asJSON
             .check(status.is(201))
             .check(headerRegex("Location", "(.*)").saveAs("new_preguntaSeccion_url"))).exitHereIfFailed
             .pause(10)

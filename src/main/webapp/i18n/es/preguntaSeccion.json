@@ -17,10 +17,13 @@
                 "title": "Pregunta Seccion"
             },
             "preguntaTitulo": "Pregunta Titulo",
+            "preguntaInstrucciones": "Pregunta Instrucciones",
+            "preguntaAyuda": "Pregunta Ayuda",
             "consecutivoSeccion": "Consecutivo Seccion",
             "tipoProyecto": "Tipo Proyecto",
             "minimoRespuesta": "Minimo Respuesta",
             "maximoRespuesta": "Maximo Respuesta",
+            "sumaTotal": "Suma Total",
             "pregunta": "Pregunta"
         }
     }

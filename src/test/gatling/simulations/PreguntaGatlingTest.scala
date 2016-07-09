@@ -67,7 +67,7 @@ class PreguntaGatlingTest extends Simulation {
             .exec(http("Create new pregunta")
             .post("/api/preguntas")
             .headers(headers_http_authenticated)
-            .body(StringBody("""{"id":null, "tipoPregunta":null, "pregunta":"SAMPLE_TEXT", "ayuda":"SAMPLE_TEXT", "max":"0", "min":"0"}""")).asJSON
+            .body(StringBody("""{"id":null, "tipoPregunta":null, "consecutivo":"0", "pregunta":"SAMPLE_TEXT", "ayuda":"SAMPLE_TEXT", "max":"0", "min":"0"}""")).asJSON
             .check(status.is(201))
             .check(headerRegex("Location", "(.*)").saveAs("new_pregunta_url"))).exitHereIfFailed
             .pause(10)

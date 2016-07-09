@@ -27,6 +27,9 @@ public class Pregunta implements Serializable {
     @Column(name = "tipo_pregunta")
     private TipoPregunta tipoPregunta;
 
+    @Column(name = "consecutivo")
+    private Integer consecutivo;
+
     @Column(name = "pregunta")
     private String pregunta;
 
@@ -56,6 +59,14 @@ public class Pregunta implements Serializable {
 
     public void setTipoPregunta(TipoPregunta tipoPregunta) {
         this.tipoPregunta = tipoPregunta;
+    }
+
+    public Integer getConsecutivo() {
+        return consecutivo;
+    }
+
+    public void setConsecutivo(Integer consecutivo) {
+        this.consecutivo = consecutivo;
     }
 
     public String getPregunta() {
@@ -123,6 +134,7 @@ public class Pregunta implements Serializable {
         return "Pregunta{" +
             "id=" + id +
             ", tipoPregunta='" + tipoPregunta + "'" +
+            ", consecutivo='" + consecutivo + "'" +
             ", pregunta='" + pregunta + "'" +
             ", ayuda='" + ayuda + "'" +
             ", max='" + max + "'" +

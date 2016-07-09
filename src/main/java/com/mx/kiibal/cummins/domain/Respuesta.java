@@ -24,10 +24,6 @@ public class Respuesta implements Serializable {
     @Column(name = "respuesta")
     private String respuesta;
 
-    @OneToOne
-    @JoinColumn(unique = true)
-    private Pregunta pregunta;
-
     @ManyToOne
     private Proyecto proyecto;
 
@@ -45,14 +41,6 @@ public class Respuesta implements Serializable {
 
     public void setRespuesta(String respuesta) {
         this.respuesta = respuesta;
-    }
-
-    public Pregunta getPregunta() {
-        return pregunta;
-    }
-
-    public void setPregunta(Pregunta pregunta) {
-        this.pregunta = pregunta;
     }
 
     public Proyecto getProyecto() {

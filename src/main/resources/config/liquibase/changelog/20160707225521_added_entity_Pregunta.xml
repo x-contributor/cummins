@@ -25,6 +25,10 @@
                 <constraints nullable="true" />
             </column>
             
+            <column name="consecutivo" type="integer">
+                <constraints nullable="true" />
+            </column>
+            
             <column name="pregunta" type="varchar(255)">
                 <constraints nullable="true" />
             </column>

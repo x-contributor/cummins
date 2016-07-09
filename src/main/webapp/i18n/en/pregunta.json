@@ -17,6 +17,7 @@
                 "title": "Pregunta"
             },
             "tipoPregunta": "Tipo Pregunta",
+            "consecutivo": "Consecutivo",
             "pregunta": "Pregunta",
             "ayuda": "Ayuda",
             "max": "Max",

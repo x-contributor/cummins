@@ -2,16 +2,16 @@
   "relationships": [
     {
       "relationshipId": 1,
-      "relationshipName": "voluntarioVisitador",
-      "otherEntityName": "voluntarioVisitador",
       "relationshipType": "many-to-one",
+      "relationshipName": "participante",
+      "otherEntityName": "participante",
       "otherEntityField": "id"
     },
     {
       "relationshipId": 2,
       "relationshipType": "many-to-one",
-      "relationshipName": "participante",
-      "otherEntityName": "participante",
+      "relationshipName": "visitador",
+      "otherEntityName": "voluntarioVisitador",
       "otherEntityField": "id"
     }
   ],
@@ -31,7 +31,7 @@
       "fieldId": 3,
       "fieldName": "tipoProyectto",
       "fieldType": "TipoProyecto",
-      "fieldValues": "EXISTENTE,NUEVO"
+      "fieldValues": "TODOS,EXISTENTE,NUEVO"
     }
   ],
   "changelogDate": "20160707225517",

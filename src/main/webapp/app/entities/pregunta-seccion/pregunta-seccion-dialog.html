@@ -20,6 +20,18 @@
                      />
         </div>
         <div class="form-group">
+            <label class="control-label" translate="cumminsApp.preguntaSeccion.preguntaInstrucciones" for="field_preguntaInstrucciones">Pregunta Instrucciones</label>
+            <input type="text" class="form-control" name="preguntaInstrucciones" id="field_preguntaInstrucciones"
+                    ng-model="vm.preguntaSeccion.preguntaInstrucciones"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="cumminsApp.preguntaSeccion.preguntaAyuda" for="field_preguntaAyuda">Pregunta Ayuda</label>
+            <input type="text" class="form-control" name="preguntaAyuda" id="field_preguntaAyuda"
+                    ng-model="vm.preguntaSeccion.preguntaAyuda"
+                     />
+        </div>
+        <div class="form-group">
             <label class="control-label" translate="cumminsApp.preguntaSeccion.consecutivoSeccion" for="field_consecutivoSeccion">Consecutivo Seccion</label>
             <input type="number" class="form-control" name="consecutivoSeccion" id="field_consecutivoSeccion"
                     ng-model="vm.preguntaSeccion.consecutivoSeccion"
@@ -28,6 +40,7 @@
         <div class="form-group">
             <label class="control-label" translate="cumminsApp.preguntaSeccion.tipoProyecto" for="field_tipoProyecto">Tipo Proyecto</label>
             <select class="form-control" name="tipoProyecto" ng-model="vm.preguntaSeccion.tipoProyecto" id="field_tipoProyecto">
+                <option value="TODOS" translate="cumminsApp.TipoProyecto.TODOS">TODOS</option>
                 <option value="EXISTENTE" translate="cumminsApp.TipoProyecto.EXISTENTE">EXISTENTE</option>
                 <option value="NUEVO" translate="cumminsApp.TipoProyecto.NUEVO">NUEVO</option>
             </select>
@@ -42,6 +55,12 @@
             <label class="control-label" translate="cumminsApp.preguntaSeccion.maximoRespuesta" for="field_maximoRespuesta">Maximo Respuesta</label>
             <input type="number" class="form-control" name="maximoRespuesta" id="field_maximoRespuesta"
                     ng-model="vm.preguntaSeccion.maximoRespuesta"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="cumminsApp.preguntaSeccion.sumaTotal" for="field_sumaTotal">Suma Total</label>
+            <input type="number" class="form-control" name="sumaTotal" id="field_sumaTotal"
+                    ng-model="vm.preguntaSeccion.sumaTotal"
                      />
         </div>
 

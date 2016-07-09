@@ -5,23 +5,14 @@
         .module('cumminsApp')
         .controller('RespuestaDialogController', RespuestaDialogController);
 
-    RespuestaDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', '$q', 'entity', 'Respuesta', 'Pregunta', 'Proyecto'];
+    RespuestaDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'Respuesta', 'Proyecto'];
 
-    function RespuestaDialogController ($timeout, $scope, $stateParams, $uibModalInstance, $q, entity, Respuesta, Pregunta, Proyecto) {
+    function RespuestaDialogController ($timeout, $scope, $stateParams, $uibModalInstance, entity, Respuesta, Proyecto) {
         var vm = this;
 
         vm.respuesta = entity;
         vm.clear = clear;
         vm.save = save;
-        vm.preguntas = Pregunta.query({filter: 'respuesta-is-null'});
-        $q.all([vm.respuesta.$promise, vm.preguntas.$promise]).then(function() {
-            if (!vm.respuesta.pregunta || !vm.respuesta.pregunta.id) {
-                return $q.reject();
-            }
-            return Pregunta.get({id : vm.respuesta.pregunta.id}).$promise;
-        }).then(function(pregunta) {
-            vm.preguntas.push(pregunta);
-        });
         vm.proyectos = Proyecto.query();
 
         $timeout(function (){

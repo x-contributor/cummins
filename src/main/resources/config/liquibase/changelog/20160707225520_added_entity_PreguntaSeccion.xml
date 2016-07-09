@@ -25,6 +25,14 @@
                 <constraints nullable="true" />
             </column>
             
+            <column name="pregunta_instrucciones" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            
+            <column name="pregunta_ayuda" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            
             <column name="consecutivo_seccion" type="integer">
                 <constraints nullable="true" />
             </column>
@@ -38,6 +46,10 @@
             </column>
             
             <column name="maximo_respuesta" type="integer">
+                <constraints nullable="true" />
+            </column>
+            
+            <column name="suma_total" type="integer">
                 <constraints nullable="true" />
             </column>
             

@@ -30,7 +30,7 @@ public class VoluntarioVisitador implements Serializable {
     @Column(name = "telefono")
     private String telefono;
 
-    @OneToMany(mappedBy = "voluntarioVisitador")
+    @OneToMany(mappedBy = "visitador")
     @JsonIgnore
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<Proyecto> proyectos = new HashSet<>();
