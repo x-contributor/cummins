@@ -1,0 +1,580 @@
+<div class="row">
+    <div class="col-md-12">
+        <h3>REGISTRO PROPUESTA</h3>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <wizard on-finish="vm.enviarPropuesta()" ng-show="!vm.terminado"> 
+            <wz-step wz-title="Registro de Propuesta">
+                <form name="formNombreProyecto">
+                    <div class="form-group">
+                        <label for="nombreProyecto">Nombre del Proyecto:</label>
+                        <input type="text" name="nombreProyecto" class="form-control" 
+                               ng-model="vm.proyecto.proyecto" required/>
+                        <br/>
+                    </div>
+                    <label for="nombreTematica">Selecciona una de las siguientes tres opciones de la Temática a participar:</label>
+                    <div class="radio">
+                        <label>
+                            <input type="radio" name="nombreTematica" 
+                                   ng-model="vm.proyecto.tematica" value="0"
+                                   ng-required="!vm.proyecto.tematica"/>Educación
+                        </label>
+                    </div>
+                    <div class="radio">
+                        <label>
+                            <input type="radio" name="nombreTematica" 
+                                   ng-model="vm.proyecto.tematica" value="1"
+                                   ng-required="!vm.proyecto.tematica"/>Justicia Social
+                        </label>
+                    </div>
+                    <div class="radio">
+                        <label>
+                            <input type="radio" name="nombreTematica"
+                                   ng-model="vm.proyecto.tematica" value="2"
+                                   ng-required="!vm.proyecto.tematica"/>Medio Ambiente
+                        </label>
+                    </div>
+                    <br/>
+                    <label for="tipoProyecto">Selecciona una de las siguientes dos opciones según el objetivo de su propuesta:</label>
+                    <div class="radio">
+                        <label>
+                            <input type="radio" name="tipoProyecto"
+                                   ng-model="vm.proyecto.tipoProyectto" value="1"
+                                   ng-required="!vm.proyecto.tipoProyectto"/>Petición para mejorar un programa o proyecto ya existente
+                        </label>
+                    </div>
+                    <div class="radio">
+                        <label>
+                            <input type="radio" name="tipoProyecto"
+                                   ng-model="vm.proyecto.tipoProyectto" value="2"
+                                   ng-required="!vm.proyecto.tipoProyectto"/>Proyecto o programa nuevo
+                        </label>
+                    </div>
+                    <input type="submit" wz-next value="Siguiente" class="btn btn-primary"
+                           ng-disabled="formNombreProyecto.$invalid"/>
+                </form>
+            </wz-step>
+            <wz-step wz-title="Diagnóstico del Proyecto o programa/Justificación">
+                <form name="formNuevoProyecto" ng-show="vm.proyecto.tipoProyectto === '2'">
+                    <label for="idea">¿De dónde surge la idea del proyecto? Selecciona todas las opciones que apliquen para tu proyecto <strong>(Se puede seleccionar más de una opción)</strong>:</label>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" name="idea" 
+                                   ng-model="vm.propuesta.seccion11.nuevo.origenIdea.comunidad"/> De la comunidad o beneficiarios
+                        </label>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" name="idea" 
+                                   ng-model="vm.propuesta.seccion11.nuevo.origenIdea.osc"/> De la OSC
+                        </label>
+                    </div>   
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" name="idea" 
+                                   ng-model="vm.propuesta.seccion11.nuevo.origenIdea.otro"/> Otro ¿Cuál?
+                        </label>
+                    </div>    
+                    <div ng-show="vm.propuesta.seccion11.nuevo.origenIdea.otro">
+                        <input type="text" name="otroIdea" class="form-control" 
+                               ng-model="vm.propuesta.seccion11.nuevo.origenIdea.otro.comentario"/>
+                    </div>
+                    <br/>
+
+                    <label for="diagnostico1">El proyecto forma parte de una necesidad detectada en la comunidad. Se llevó a cabo:</label>
+                    <div class="radio">
+                        <label>
+                            <input type="radio" name="diagnostico1"
+                                   ng-model="vm.propuesta.seccion11.nuevo.necesidad" value="0"/>Se observó
+                        </label>
+                    </div>
+                    <div class="radio">
+                        <label>
+                            <input type="radio" name="diagnostico1"
+                                   ng-model="vm.propuesta.seccion11.nuevo.necesidad" value="1"/>Un estudio
+                        </label>
+                    </div>
+                    <div class="radio">
+                        <label>
+                            <input type="radio" name="diagnostico1"
+                                   ng-model="vm.propuesta.seccion11.nuevo.necesidad" value="2"/>Un testimonio
+                        </label>
+                    </div>
+                    <div class="radio">
+                        <label>
+                            <input type="radio" name="diagnostico1"
+                                   ng-model="vm.propuesta.seccion11.nuevo.necesidad" value="3"/>Otro ¿Cuál?
+                        </label>
+                    </div>
+                    <div ng-show="vm.propuesta.seccion11.nuevo.necesidad === '3'">
+                        <input type="text" name="otroNecesidad" class="form-control" 
+                               ng-model="vm.propuesta.seccion11.nuevo.otro.necesidad.comentario"/>
+                    </div>
+                    <br/>
+
+                    <label for="importancia">¿Por qué es importante este proyecto o programa para la organización?<strong>(Se puede seleccionar más de una opción)</strong>:</label>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" name="importancia" 
+                                   ng-model="vm.propuesta.seccion11.nuevo.importancia.ampliar"/> Ampliar el número de programas o servicios
+                        </label>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" name="importancia" 
+                                   ng-model="vm.propuesta.seccion11.nuevo.importancia.continuidad"/> Le doy continuidad a un proyecto anterior ¿Cuál?
+                        </label>
+                    </div> 
+                    <div ng-show="vm.propuesta.seccion11.nuevo.importancia.continuidad">
+                        <input type="text" name="importanciaContinuidad" class="form-control" 
+                               ng-model="vm.propuesta.seccion11.nuevo.otro.importancia.continuidad.comentario"/>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" name="importancia" 
+                                   ng-model="vm.propuesta.seccion11.nuevo.importancia.mejora"/> Mejora la calidad de atención ¿cómo?
+                        </label>
+                    </div>
+                    <div ng-show="vm.propuesta.seccion11.nuevo.importancia.mejora">
+                        <input type="text" name="importanciaContinuidad" class="form-control" 
+                               ng-model="vm.propuesta.seccion11.nuevo.otro.importancia.mejora.comentario"/>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" name="importancia" 
+                                   ng-model="vm.propuesta.seccion11.nuevo.importancia.contribucion"/> Contribuyo a la solución de un problema nuevo en mis beneficiarios ¿cómo?
+                        </label>
+                    </div>
+                    <div ng-show="vm.propuesta.seccion11.nuevo.importancia.contribucion">
+                        <input type="text" name="importanciaContinuidad" class="form-control" 
+                               ng-model="vm.propuesta.seccion11.nuevo.otro.importancia.contribucion.comentario"/>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" name="importancia" 
+                                   ng-model="vm.propuesta.seccion11.nuevo.importancia.opInterna"/> Mejoro mi operación interna ¿cómo?
+                        </label>
+                    </div>
+                    <div ng-show="vm.propuesta.seccion11.nuevo.importancia.opInterna">
+                        <input type="text" name="importanciaContinuidad" class="form-control" 
+                               ng-model="vm.propuesta.seccion11.nuevo.otro.importancia.opInterna.comentario"/>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" name="importancia" 
+                                   ng-model="vm.propuesta.seccion11.nuevo.importancia.ahorro"/> Genero un ahorro a mis gastos ¿cómo, mediante qué acciones y metodología?, ¿cuánto,qué cantidad?
+                        </label>
+                    </div>
+                    <div ng-show="vm.propuesta.seccion11.nuevo.importancia.ahorro">
+                        <input type="text" name="importanciaContinuidad" class="form-control" 
+                               ng-model="vm.propuesta.seccion11.nuevo.otro.importancia.ahorro.comentario"/>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" name="importancia" 
+                                   ng-model="vm.propuesta.seccion11.nuevo.importancia.ingreso"/> Genero un ingreso nuevo ¿cómo, mediante qué acciones y metodología?, ¿cuánto, qué cantidad? ¿Quién es mi cliente, cómo tengo seguro que sea mi cliente?
+                        </label>
+                    </div>
+                    <div ng-show="vm.propuesta.seccion11.nuevo.importancia.ingreso">
+                        <input type="text" name="importanciaContinuidad" class="form-control" 
+                               ng-model="vm.propuesta.seccion11.nuevo.otro.importancia.ingreso.comentario"/>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" name="importancia" 
+                                   ng-model="vm.propuesta.seccion11.nuevo.importancia.otro"/> Otro ¿cuál?
+                        </label>
+                    </div>
+                    <div ng-show="vm.propuesta.seccion11.nuevo.importancia.otro">
+                        <input type="text" name="importanciaContinuidad" class="form-control" 
+                               ng-model="vm.propuesta.seccion11.nuevo.otro.importancia.otro.comentario"/>
+                    </div>
+                    <input type="submit" wz-next value="Continuar" class="btn btn-primary"/>
+                </form>
+                <form name="formPeticionProyecto" ng-show="vm.proyecto.tipoProyectto === '1'">
+                    <label for="importanciaPeticion">¿Por qué es importante esta mejora para el programa o proyecto descrito?<strong>(Se puede seleccionar más de una opción)</strong>:</label>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" name="importanciaPeticion" 
+                                   ng-model="vm.propuesta.seccion11.peticion.importancia.aumentar"/> Aumentar la capacidad de atención de beneficiarios en los programas o servicios actuales
+                        </label>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" name="importanciaPeticion" 
+                                   ng-model="vm.propuesta.seccion11.peticion.importancia.mejora"/> Mejora la calidad de atención ¿cómo?
+                        </label>
+                    </div>
+                    <div ng-show="vm.propuesta.seccion11.peticion.importancia.mejora">
+                        <input type="text" name="importanciaMejora" class="form-control" 
+                               ng-model="vm.propuesta.seccion11.peticion.otro.importancia.mejora"/>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" name="importanciaPeticion" 
+                                   ng-model="vm.propuesta.seccion11.peticion.importancia.opInterna"/> Mejoro mi operación interna ¿cómo?
+                        </label>
+                    </div>
+                    <div ng-show="vm.propuesta.seccion11.peticion.importancia.opInterna">
+                        <input type="text" name="importanciaMejora" class="form-control" 
+                               ng-model="vm.propuesta.seccion11.peticion.otro.importancia.opInterna"/>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" name="importanciaPeticion" 
+                                   ng-model="vm.propuesta.seccion11.peticion.importancia.ahorro"/> Genero un ahorro a mis gastos ¿cómo, mediante qué acciones y metodología?, ¿cuánto, qué cantidad?
+                        </label>
+                    </div>
+                    <div ng-show="vm.propuesta.seccion11.peticion.importancia.ahorro">
+                        <input type="text" name="importanciaMejora" class="form-control" 
+                               ng-model="vm.propuesta.seccion11.peticion.otro.importancia.ahorro"/>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" name="importanciaPeticion" 
+                                   ng-model="vm.propuesta.seccion11.peticion.importancia.ingreso"/> Genero un ingreso nuevo ¿cómo, mediante qué acciones y metodología?,¿cuánto, qué cantidad? ¿Quién es mi cliente, cómo tengo seguro que sea mi cliente?
+                        </label>
+                    </div>
+                    <div ng-show="vm.propuesta.seccion11.peticion.importancia.ingreso">
+                        <input type="text" name="importanciaMejora" class="form-control" 
+                               ng-model="vm.propuesta.seccion11.peticion.otro.importancia.ingreso"/>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" name="importanciaPeticion" 
+                                   ng-model="vm.propuesta.seccion11.peticion.importancia.otro"/> Otro ¿cuál?
+                        </label>
+                    </div>
+                    <div ng-show="vm.propuesta.seccion11.peticion.importancia.otro">
+                        <input type="text" name="importanciaMejora" class="form-control" 
+                               ng-model="vm.propuesta.seccion11.peticion.otro.importancia.otro"/>
+                    </div>
+                    <input type="submit" wz-next value="Siguiente" class="btn btn-primary"/>
+                </form>
+            </wz-step>
+            <wz-step wz-title="Objetivo General">
+                <form name="formNuevoObjetivoGeneral" ng-show="vm.proyecto.tipoProyectto === '2'">
+                    <div class="form-group">
+                        <label for="actividad">¿Cuál es la actividad principal que vas a emprender? Actividad principal redactada en ar, er, ir:</label>
+                        <input type="text" name="actividad" class="form-control" 
+                               ng-model="vm.propuesta.seccion2.nuevo.objetivoGeneral.actividad"/>
+                        <br/>
+                        <label for="situacion">¿Para cambiar qué situación?:</label>
+                        <input type="text" name="situacion" class="form-control" 
+                               ng-model="vm.propuesta.seccion2.nuevo.objetivoGeneral.situacion" />
+                        <br/>
+                        <label for="beneficio">¿Obtener qué beneficio?:</label>
+                        <input type="text" name="beneficio" class="form-control" 
+                               ng-model="vm.propuesta.seccion2.nuevo.objetivoGeneral.beneficio" />
+                        <br/>
+                        <label for="principalBeneficio">¿Cuál es el principal beneficio que vas a lograr?:</label>
+                        <input type="text" name="principalBeneficio" class="form-control" 
+                               ng-model="vm.propuesta.seccion2.nuevo.objetivoGeneral.principalBeneficio" />
+                        <br/>
+                        <label for="quienes">¿Para quienes? Mujeres, niños, edad, discapacitados:</label>
+                        <input type="text" name="quienes" class="form-control" 
+                               ng-model="vm.propuesta.seccion2.nuevo.objetivoGeneral.quienes" />
+                        <br/>
+                        <label for="donde">¿En dónde? Municipio, colonia:</label>
+                        <input type="text" name="donde" class="form-control" 
+                               ng-model="vm.propuesta.seccion2.nuevo.objetivoGeneral.donde" />
+                        <br/>
+                        <label for="como">¿Cómo? A través de capacitación, consultas, equipar, etc.:</label>
+                        <input type="text" name="como" class="form-control" 
+                               ng-model="vm.propuesta.seccion2.nuevo.objetivoGeneral.como" />
+                        <br/>
+                    </div>
+                    <input type="submit" wz-next value="Siguiente" class="btn btn-primary"/>
+                </form>
+                <form name="formPeticionObjetivoGeneral" ng-show="vm.proyecto.tipoProyectto === '1'">
+                    <div class="form-group">
+                        <label for="peticion">¿Qué estas pidiendo? Descripción de conceptos o actividad principal redactada en ar, er, ir:</label>
+                        <input type="text" name="peticion" class="form-control" 
+                               ng-model="vm.propuesta.seccion2.peticion.objetivoGeneral.peticion"/>
+                        <br/>
+                        <label for="mejorar">Para mejorar ¿qué proyecto/ programa o servicio? ¿Qué ofrece este programa o servicio?:</label>
+                        <input type="text" name="mejorar" class="form-control" 
+                               ng-model="vm.propuesta.seccion2.peticion.objetivoGeneral.mejorar" />
+                        <br/>
+                        <label for="tiempo">¿Cuánto tiempo tienes operando el proyecto/programa u ofreciendo el servicio?:</label>
+                        <input type="text" name="tiempo" class="form-control" 
+                               ng-model="vm.propuesta.seccion2.peticion.objetivoGeneral.tiempo" />
+                        <br/>
+                        <label for="como">¿Cómo vas a mejorar el proyecto/programa o servicio? ¿cuál es la situación actual y cómo va a ser diferente después de la implementación de esta mejora?:</label>
+                        <input type="text" name="como" class="form-control" 
+                               ng-model="vm.propuesta.seccion2.peticion.objetivoGeneral.como" />
+                        <br/>
+                        <label for="medida">¿Cómo vas a medir esa mejora?, ¿en cuánto tiempo?:</label>
+                        <input type="text" name="medida" class="form-control" 
+                               ng-model="vm.propuesta.seccion2.peticion.objetivoGeneral.medida" />
+                        <br/>
+                    </div>
+                    <input type="submit" wz-next value="Siguiente" class="btn btn-primary"/>
+                </form>
+            </wz-step>
+            <wz-step wz-title="Objetivos Específicos">
+                <form name="formObjetivosEspecificos">
+                    <div class="form-group">
+                        <label>¿Qué distintas actividades vas a poner en práctica para lograrlo? (Máximo 3)</label>
+                        <div ng-repeat="objetivo in vm.objetivosEspecificos">
+                            <label for="objetivo">Objetivo específico {{$index + 1}}:</label>
+                            <input type="text" name="objetivo" class="form-control" 
+                                   ng-model="vm.objetivosEspecificos[$index].objetivo"/>
+                            <br/>
+                            <label for="actividad">Actividad secundaria o derivada en ar, er, ir:</label>
+                            <input type="text" name="actividad" class="form-control" 
+                                   ng-model="vm.objetivosEspecificos[$index].actividadSecundaria"/>
+                            <br/>
+                            <label for="beneficio">¿Cuál es el principal beneficio que vas a lograr?:</label>
+                            <input type="text" name="beneficio" class="form-control" 
+                                   ng-model="vm.objetivosEspecificos[$index].principalBeneficio"/>
+                            <br/>
+                            <label for="quienes">¿Para quienes? Mujeres, niños, edad, discapacitados:</label>
+                            <input type="text" name="quienes" class="form-control" 
+                                   ng-model="vm.objetivosEspecificos[$index].quienes"/>
+                            <br/>
+                            <label for="donde">¿En dónde? Municipio, colonia:</label>
+                            <input type="text" name="donde" class="form-control" 
+                                   ng-model="vm.objetivosEspecificos[$index].donde"/>
+                            <br/>
+                            <label for="como">¿Cómo? A través de capacitación, consultas, equipar, etc.:</label>
+                            <input type="text" name="como" class="form-control" 
+                                   ng-model="vm.objetivosEspecificos[$index].como"/>
+                            <br/>
+                        </div>
+                        <br/>
+                        <button class="btn btn-default" 
+                                ng-click="vm.agregarObjetivoEspecifico()"
+                                ng-disabled="vm.contadorObjetivosEspecificos === 3">
+                            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                        </button>
+                    </div>
+                    <input type="submit" wz-next value="Siguiente" class="btn btn-primary"
+                           ng-disabled="vm.contadorObjetivosEspecificos === 0"/>
+                </form>
+            </wz-step>
+            <wz-step wz-title="Beneficiarios y comunidades atendidas">
+                <form name="formBeneficiarios">
+                    <label>Completar según se indica a continuación. Se puede agregar el número de grupos de beneficiarios que necesites.</label>
+                    <div ng-repeat="beneficiados in vm.grupoBeneficiados">
+                        <label for="beneficiados">Grupo de beneficiados {{$index + 1}}:</label>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" name="beneficiados" 
+                                       ng-model="vm.propuesta.seccion3.beneficiados[$index].hombre"/> Hombres
+                            </label>
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" name="beneficiados" 
+                                       ng-model="vm.propuesta.seccion3.beneficiados[$index].mujer"/> Mujeres
+                            </label>
+                        </div>
+                        <br/>
+                        <label>Rango mínimo de edad de los beneficiarios:</label>
+                        <input type="number" class="form-control" name="minimoEdad"
+                               ng-model="vm.propuesta.seccion3.beneficiados[$index].minimo" min="0" max="100"/>
+                        <br/>
+                        <label>Rango máximo de edad de los beneficiarios:</label>
+                        <input type="number" class="form-control" name="maximoEdad"
+                               ng-model="vm.propuesta.seccion3.beneficiados[$index].maximo" 
+                               min="0"
+                               max="100"/>
+                        <br/>
+                        <label>Total de Beneficiarios:</label>
+                        <input type="number" class="form-control" name="totalBenfef"
+                               ng-model="vm.propuesta.seccion3.beneficiados[$index].totalBeneficiarios" min="0"/>
+                        <br/>
+                        <label>Beneficiarios que participan regularmente:</label>
+                        <input type="number" class="form-control" name="benfefRegular"
+                               ng-model="vm.propuesta.seccion3.beneficiados[$index].beneficiariosRegulares" min="0"/>
+                        <br/>
+                        <label>Beneficiarios que participan eventualmente:</label>
+                        <input type="number" class="form-control" name="totalBenfef"
+                               ng-model="vm.propuesta.seccion3.beneficiados[$index].beneficiariosEventuales" min="0"/>
+                        <br/>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" name="riesgo" 
+                                       ng-model="vm.propuesta.seccion3.beneficiados[$index].situacion"/> Situación de riesgo / enfermedad
+                            </label>
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" name="discapacidad" 
+                                       ng-model="vm.propuesta.seccion3.beneficiados[$index].discapacidad.valor"/> Discapacidad ¿Cuál?
+                            </label>
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" name="violencia" 
+                                       ng-model="vm.propuesta.seccion3.beneficiados[$index].violencia"/> Violencia
+                            </label>
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" name="enfermedad" 
+                                       ng-model="vm.propuesta.seccion3.beneficiados[$index].enfermedad.valor"/> Enfermedad ¿Cuál?
+                            </label>
+                        </div>
+                        <div ng-show="vm.propuesta.seccion3.beneficiados[$index].enfermedad.valor">
+                            <input type="text" name="importanciaMejora" class="form-control" 
+                                   ng-model="vm.propuesta.seccion3.beneficiados[$index].enfermedad.comentario"/>
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" name="abandono" 
+                                       ng-model="vm.propuesta.seccion3.beneficiados[$index].abandono"/> Abandono
+                            </label>
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" name="marginacion" 
+                                       ng-model="vm.propuesta.seccion3.beneficiados[$index].marginacion"/> Marginación
+                            </label>
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" name="desnutricion" 
+                                       ng-model="vm.propuesta.seccion3.beneficiados[$index].desnutricion"/> Desnutrición
+                            </label>
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" name="otro" 
+                                       ng-model="vm.propuesta.seccion3.beneficiados[$index].otra.valor"/> Otra ¿Cuál?
+                            </label>
+                        </div>
+                        <div ng-show="vm.propuesta.seccion3.beneficiados[$index].otra.valor">
+                            <input type="text" name="otro" class="form-control" 
+                                   ng-model="vm.propuesta.seccion3.beneficiados[$index].otra.comentario"/>
+                        </div>
+                        <br/>
+                    </div>
+                    <br/>
+                    <button class="btn btn-default" 
+                            ng-click="vm.agregarGrupoBeneficiados()"
+                            ng-disabled="vm.contadorGrupoBeneficiados === 10">
+                        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                    </button>
+                    <br/>
+                    <input type="submit" wz-next value="Siguiente" class="btn btn-primary"
+                           ng-disabled="vm.contadorGrupoBeneficiados === 0"/>
+                </form>
+            </wz-step>
+            <wz-step wz-title="Inversión Requerida">
+                <form name="formNombreAc">
+                    <label>Ingresar el monto de la propuesta en cada concepto. La suma no debe ser mayor a $300,000.00</label>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" name="construccion" 
+                                   ng-model="vm.propuesta.seccion4.construccion"/> Construcción u obra civil
+                        </label>
+                    </div>
+                    <div ng-show="vm.propuesta.seccion4.construccion">
+                        <input type="text" name="otro" class="form-control" 
+                               ng-model="vm.propuesta.seccion4.monto.construccion"
+                               ui-money-mask/>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" name="materiales" 
+                                   ng-model="vm.propuesta.seccion4.materiales"/> Equipamiento y materiales
+                        </label>
+                    </div>
+                    <div ng-show="vm.propuesta.seccion4.materiales">
+                        <input type="text" name="materiales" class="form-control" 
+                               ng-model="vm.propuesta.seccion4.monto.materiales"
+                               ui-money-mask/>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" name="honorarios" 
+                                   ng-model="vm.propuesta.seccion4.honorarios"/> Honorarios
+                        </label>
+                    </div>
+                    <div ng-show="vm.propuesta.seccion4.honorarios">
+                        <input type="text" name="honorarios" class="form-control" 
+                               ng-model="vm.propuesta.seccion4.monto.honorarios"
+                               ui-money-mask/>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" name="otro" 
+                                   ng-model="vm.propuesta.seccion4.otro"/> Otro concepto
+                        </label>
+                    </div>
+                    <div ng-show="vm.propuesta.seccion4.otro">
+                        <input type="text" name="otro" class="form-control" 
+                               ng-model="vm.propuesta.seccion4.monto.otro"
+                               ui-money-mask/>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" name="especie" 
+                                   ng-model="vm.propuesta.seccion4.especie"/> Otras aportaciones 'en especie' puede ser tiempo
+                        </label>
+                    </div>
+                    <div ng-show="vm.propuesta.seccion4.especie">
+                        <input type="text" name="especie" class="form-control" 
+                               ng-model="vm.propuesta.seccion4.monto.especie"/>
+                    </div>
+                    <label for="total">Monto Total: {{(vm.propuesta.seccion4.monto.construccion + vm.propuesta.seccion4.monto.materiales + vm.propuesta.seccion4.monto.honorarios + vm.propuesta.seccion4.monto.otro) | currency }}</label>
+                    <br/>
+                    <div class="alert alert-danger" role="alert"
+                         ng-show="(vm.propuesta.seccion4.monto.construccion + vm.propuesta.seccion4.monto.materiales + vm.propuesta.seccion4.monto.honorarios + vm.propuesta.seccion4.monto.otro) > 300000">
+                        El monto no puede ser mayor a $300,000.00
+                    </div>
+                    <br/>
+                    <label for="totalSemanas">Tiempo total de implementación del proyecto en semanas: </label>
+                    <input type="number" class="form-control" name="totalSemanas"
+                           ng-model="vm.propuesta.seccion4.monto.semanas" 
+                           min="1"
+                           max="52"/>
+                    <br/>
+                    <input type="submit" wz-next value="Siguiente" class="btn btn-primary"/>
+                </form>
+            </wz-step>
+            <wz-step wz-title="Continuidad del Proyecto">
+                <form name="formContinuidadProyecto">
+                    <label>Acciones o resumen de tareas tienes que llevar a cabo para lograr cada uno de los objetivos específicos.</label>
+                    <div ng-repeat="objetivo in vm.objetivosEspecificos">
+                        <div class="form-group">
+                            <label>Objetivo específico {{$index + 1}}:</label>
+                            <div ng-repeat="accion in objetivo.acciones">
+                                <label>Acción {{$parent.$index + 1}}.{{$index + 1}}</label>
+                                <input type="text" name="accion" class="form-control" 
+                                       ng-model="vm.objetivosEspecificos[$parent.$index].acciones[$index].descripcionAccion"/>
+                            </div>
+                            <button class="btn btn-default" 
+                                    ng-click="vm.agregarAcciones($index)"
+                                    ng-disabled="objetivo.acciones.length === 3">
+                                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                            </button>
+                        </div>
+                    </div>
+                    <br/>
+                    <input type="submit" wz-next value="Terminar" class="btn btn-primary"
+                           ng-disabled="formNombreAc.$invalid"/>
+                </form>
+            </wz-step>
+        </wizard>
+        <div ng-show="!vm.error && vm.terminado">
+            <div class="col-md-12">
+                <div class="alert alert-success" role="alert">
+                    Gracias por tu participación, los datos se han guardado correctamente.
+                </div>
+            </div>
+        </div>
+        <div ng-show="vm.error && vm.terminado">
+            <div class="col-md-12">
+                <div class="alert alert-danger" role="alert">
+                    Los sentimos ha ocurrido un error al procesar su solicitud, favor de intentarlo mas tarde.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -4,8 +4,8 @@ var PLURAL_CATEGORY = {ZERO: "zero", ONE: "one", TWO: "two", FEW: "few", MANY: "
 $provide.value("$locale", {
   "DATETIME_FORMATS": {
     "AMPMS": [
-      "a. m.",
-      "p. m."
+      "a.m.",
+      "p.m."
     ],
     "DAY": [
       "domingo",
@@ -24,7 +24,7 @@ $provide.value("$locale", {
       "a. C.",
       "d. C."
     ],
-    "FIRSTDAYOFWEEK": 0,
+    "FIRSTDAYOFWEEK": 6,
     "MONTH": [
       "enero",
       "febrero",
@@ -49,18 +49,18 @@ $provide.value("$locale", {
       "s\u00e1b."
     ],
     "SHORTMONTH": [
-      "ene.",
-      "feb.",
-      "mar.",
-      "abr.",
-      "may.",
-      "jun.",
-      "jul.",
-      "ago.",
-      "sept.",
-      "oct.",
-      "nov.",
-      "dic."
+      "ene",
+      "feb",
+      "mar",
+      "abr",
+      "may",
+      "jun",
+      "jul",
+      "ago",
+      "sep",
+      "oct",
+      "nov",
+      "dic"
     ],
     "STANDALONEMONTH": [
       "Enero",
@@ -82,17 +82,17 @@ $provide.value("$locale", {
     ],
     "fullDate": "EEEE, d 'de' MMMM 'de' y",
     "longDate": "d 'de' MMMM 'de' y",
-    "medium": "d MMM y H:mm:ss",
-    "mediumDate": "d MMM y",
-    "mediumTime": "H:mm:ss",
-    "short": "d/M/yy H:mm",
-    "shortDate": "d/M/yy",
-    "shortTime": "H:mm"
+    "medium": "dd/MM/y h:mm:ss a",
+    "mediumDate": "dd/MM/y",
+    "mediumTime": "h:mm:ss a",
+    "short": "dd/MM/yy h:mm a",
+    "shortDate": "dd/MM/yy",
+    "shortTime": "h:mm a"
   },
   "NUMBER_FORMATS": {
-    "CURRENCY_SYM": "\u20ac",
-    "DECIMAL_SEP": ",",
-    "GROUP_SEP": ".",
+    "CURRENCY_SYM": "$",
+    "DECIMAL_SEP": ".",
+    "GROUP_SEP": ",",
     "PATTERNS": [
       {
         "gSize": 3,
@@ -111,15 +111,15 @@ $provide.value("$locale", {
         "maxFrac": 2,
         "minFrac": 2,
         "minInt": 1,
-        "negPre": "-",
-        "negSuf": "\u00a0\u00a4",
-        "posPre": "",
-        "posSuf": "\u00a0\u00a4"
+        "negPre": "-\u00a4",
+        "negSuf": "",
+        "posPre": "\u00a4",
+        "posSuf": ""
       }
     ]
   },
-  "id": "es",
-  "localeID": "es",
+  "id": "es-mx",
+  "localeID": "es_MX",
   "pluralCat": function(n, opt_precision) {  if (n == 1) {    return PLURAL_CATEGORY.ONE;  }  return PLURAL_CATEGORY.OTHER;}
 });
 }]);

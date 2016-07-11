@@ -28,11 +28,11 @@ public class Proyecto implements Serializable {
     @Column(name = "proyecto")
     private String proyecto;
 
-    @Enumerated(EnumType.STRING)
+    @Enumerated(EnumType.ORDINAL)
     @Column(name = "tematica")
     private Tematica tematica;
 
-    @Enumerated(EnumType.STRING)
+    @Enumerated(EnumType.ORDINAL)
     @Column(name = "tipo_proyectto")
     private TipoProyecto tipoProyectto;
 
