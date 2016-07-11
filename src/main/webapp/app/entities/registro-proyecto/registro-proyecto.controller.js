@@ -1,13 +1,13 @@
-(function() {
+(function () {
     'use strict';
 
     angular
-        .module('cumminsApp')
-        .controller('RegistroProyectoController', RegistroProyectoController);
+            .module('cumminsApp')
+            .controller('RegistroProyectoController', RegistroProyectoController);
 
-    RegistroProyectoController.$inject = ['$scope', '$q','DataUtils','ParticipanteDescripcion','Participante','Contacto'];
+    RegistroProyectoController.$inject = ['$scope', '$q', 'DataUtils', 'ParticipanteDescripcion', 'Participante', 'Contacto', 'Auth', '$translate'];
 
-    function RegistroProyectoController ($scope, $q, DataUtils, ParticipanteDescripcion, Participante, Contacto) {
+    function RegistroProyectoController($scope, $q, DataUtils, ParticipanteDescripcion, Participante, Contacto, Auth, $translate) {
         var vm = this;
 
         vm.participanteDescripcion = null;
@@ -15,12 +15,34 @@
         vm.contacto = null;
         vm.byteSize = DataUtils.byteSize;
         vm.openFile = DataUtils.openFile;
-        vm.save = saveParticipante;
+        vm.save = registerUser;
         vm.error = false;
         vm.terminado = null;
-        
+        vm.registerAccount = {};
 
-        function save () {
+        function registerUser() {
+            vm.registerAccount.langKey = $translate.use();
+            vm.registerAccount.login = vm.contacto.email;
+            vm.registerAccount.email = vm.contacto.email;
+            vm.errorUserExists = null;
+            vm.errorEmailExists = null;
+
+            Auth.createAccount(vm.registerAccount).then(function () {
+                vm.success = 'OK';
+                vm.error = false;
+                saveParticipante();
+            }).catch(function (response) {
+                vm.success = null;
+                vm.error = true;
+                if (response.status === 400 && response.data === 'login already in use') {
+                    vm.errorUserExists = 'ERROR';
+                } else if (response.status === 400 && response.data === 'e-mail address already in use') {
+                    vm.errorEmailExists = 'ERROR';
+                } 
+            });
+        }
+
+        function save() {
             vm.isSaving = true;
             console.log(vm.participanteDescripcion);
             if (vm.participanteDescripcion.id !== null) {
@@ -30,35 +52,35 @@
             }
         }
 
-        function onSaveSuccess (result) {
+        function onSaveSuccess(result) {
             vm.isSaving = false;
             vm.error = false;
             vm.terminado = true;
         }
 
-        function onSaveError () {
+        function onSaveError() {
             vm.isSaving = false;
             vm.error = true;
             vm.terminado = true;
         }
-        
-        function onSaveSuccessParticipante(result){
+
+        function onSaveSuccessParticipante(result) {
             vm.participanteDescripcion.participante = result;
             saveContacto();
         }
-        
-        function onSaveSuccessContacto (result) {
+
+        function onSaveSuccessContacto(result) {
             vm.isSaving = false;
             save();
         }
-        
-        function saveParticipante(){
+
+        function saveParticipante() {
             vm.isSaving = true;
             console.log(vm.participante);
             Participante.save(vm.participante, onSaveSuccessParticipante, onSaveError);
         }
-        
-        function saveContacto(){
+
+        function saveContacto() {
             vm.isSaving = true;
             vm.contacto.participante = vm.participanteDescripcion.participante;
             console.log(vm.contacto);
@@ -71,8 +93,8 @@
                 return;
             }
             if ($file) {
-                DataUtils.toBase64($file, function(base64Data) {
-                    $scope.$apply(function() {
+                DataUtils.toBase64($file, function (base64Data) {
+                    $scope.$apply(function () {
                         participanteDescripcion.logotipo = base64Data;
                         participanteDescripcion.logotipoContentType = $file.type;
                     });

@@ -2,7 +2,10 @@ package com.mx.kiibal.cummins.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
 import com.mx.kiibal.cummins.domain.Contacto;
+import com.mx.kiibal.cummins.domain.User;
 import com.mx.kiibal.cummins.repository.ContactoRepository;
+import com.mx.kiibal.cummins.service.MailService;
+import com.mx.kiibal.cummins.service.UserService;
 import com.mx.kiibal.cummins.web.rest.util.HeaderUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,6 +20,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
 import java.util.Optional;
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * REST controller for managing Contacto.
@@ -29,6 +33,9 @@ public class ContactoResource {
         
     @Inject
     private ContactoRepository contactoRepository;
+    
+    @Inject
+    private UserService userService;
     
     /**
      * POST  /contactos : Create a new contacto.

@@ -39,10 +39,11 @@
                                ng-model="vm.contacto.email" required/>
                         <br/>
                         <label for="password">Password</label>*
-                        <input type="password" name="password" class="form-control" required/>
+                        <input type="password" name="password" ng-model="vm.registerAccount.password" class="form-control" required/>
                         <br/>
                         <label for="confirm">Confirmación Password</label>*
-                        <input type="password" name="confirm" class="form-control" required/>
+                        <input type="password" name="confirm" ng-model="vm.confirmPassword" class="form-control" required/>
+                        <password-strength-bar password-to-check="vm.registerAccount.password"></password-strength-bar>
                         <br/>
                         <label class="control-label" translate="cumminsApp.contacto.cargo" for="field_cargo">Cargo</label>*
                         <input type="text" class="form-control" name="cargo" id="field_cargo"
@@ -58,7 +59,7 @@
                         <br/>
                     </div>
                     <input type="submit" wz-next value="Continuar" class="btn btn-primary"
-                           ng-disabled="formContacto.$invalid"/>
+                           ng-disabled="(formContacto.$invalid) || (vm.registerAccount.password !== vm.confirmPassword)"/>
                 </form>
             </wz-step>
             <wz-step wz-title="Información AC">
@@ -132,8 +133,14 @@
         </div>
         <div ng-show="vm.error && vm.terminado">
             <div class="col-md-12">
-                <div class="alert alert-danger" role="alert">
+                <div class="alert alert-danger" role="alert" ng-show="vm.error">
                     Los sentimos ha ocurrido un error al procesar su solicitud, favor de intentarlo mas tarde.
+                </div>
+                <div class="alert alert-danger" ng-show="vm.errorUserExists">
+                    <strong>Nombre de usuario ya registrado.</strong>
+                </div>
+                <div class="alert alert-danger" ng-show="vm.errorEmailExists">
+                    <strong>Correo ya registrado.</strong>
                 </div>
             </div>
         </div>

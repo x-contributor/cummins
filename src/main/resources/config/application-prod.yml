@@ -37,11 +37,17 @@ spring:
             hibernate.cache.use_query_cache: false
             hibernate.generate_statistics: false
             hibernate.cache.region.factory_class: org.hibernate.cache.ehcache.SingletonEhCacheRegionFactory
-    mail:
-        host: localhost
-        port: 25
-        username:
-        password:
+    mail: 
+        host: smtp.mailgun.org
+        port: 587
+        username: postmaster@testmail.brijex.co  
+        password: 86e8bfd1b5fcc2651163fa4a6b186cab           
+        protocol: smtp
+        tls: true
+        properties.mail.smtp:
+            auth: true
+            starttls.enable: true
+            ssl.trust: smtp.mailgun.org
     thymeleaf:
         cache: true
 
@@ -72,7 +78,7 @@ jhipster:
             # security key (this key should be unique for your application, and kept secret)
             key: f3fd1aa2c5b311cdf48fb944edc176fa8685608e
     mail: # specific JHipster mail property, for standard properties see MailProperties
-        from: cummins@localhost
+        from: postmaster@testmail.brijex.co
     metrics: # DropWizard Metrics configuration, used by MetricsConfiguration
         jmx.enabled: true
         spark:

@@ -16,7 +16,6 @@
             'ui.router',
             'infinite-scroll',
             'mgo-angular-wizard',
-            'ui-rangeSlider',
             'ui.utils.masks',
             // jhipster-needle-angularjs-add-module JHipster will add new module here
             'angular-loading-bar'
