@@ -9,6 +9,8 @@
             "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
             "entities": {
                 "main": "Entidades",
+                "registroParticipante": "Registro Partipante",
+                "registroPropuesta": "Registro Propuesta",
                 "participante": "Participante",
                 "contacto": "Contacto",
                 "voluntarioVisitador": "Voluntario Visitador",

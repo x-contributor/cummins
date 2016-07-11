@@ -126,5 +126,19 @@ public class ContactoResource {
         contactoRepository.delete(id);
         return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert("contacto", id.toString())).build();
     }
+    
+    @RequestMapping(value = "/contactos/email/{email}",
+        method = RequestMethod.GET,
+        produces = MediaType.APPLICATION_JSON_VALUE)
+    @Timed
+    public ResponseEntity<Contacto> getContactoByEmail(@PathVariable String email) {
+        log.debug("REST request to getContactoByEmail: {}", email);
+        Contacto contacto = contactoRepository.findByEmail(email);
+        return Optional.ofNullable(contacto)
+            .map(result -> new ResponseEntity<>(
+                result,
+                HttpStatus.OK))
+            .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
+    }
 
 }

@@ -1,7 +1,11 @@
 package com.mx.kiibal.cummins.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
+import com.mx.kiibal.cummins.domain.Contacto;
+import com.mx.kiibal.cummins.domain.Proyecto;
 import com.mx.kiibal.cummins.domain.Respuesta;
+import com.mx.kiibal.cummins.repository.ContactoRepository;
+import com.mx.kiibal.cummins.repository.ProyectoRepository;
 import com.mx.kiibal.cummins.repository.RespuestaRepository;
 import com.mx.kiibal.cummins.web.rest.util.HeaderUtil;
 import org.slf4j.Logger;
@@ -15,6 +19,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.inject.Inject;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
 
@@ -29,6 +34,12 @@ public class RespuestaResource {
         
     @Inject
     private RespuestaRepository respuestaRepository;
+    
+    @Inject
+    private ProyectoRepository proyectoRepository;
+    
+    @Inject
+    private ContactoRepository contactoRepository;
     
     /**
      * POST  /respuestas : Create a new respuesta.

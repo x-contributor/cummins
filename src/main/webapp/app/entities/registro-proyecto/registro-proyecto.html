@@ -1,0 +1,141 @@
+<div class="row">
+    <div class="col-md-12">
+        <h3>PREMIO A LA FILANTROPÍA</h3>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <h4>REGISTRO DE OSC PARTICIPANTE</h4>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+
+        <wizard on-finish="vm.save()" ng-show="!vm.terminado"> 
+            <wz-step wz-title="Nombre de la AC">
+                <form name="formNombreAc">
+                    <div class="form-group">
+                        <label for="nombreAc">Nombre de la AC:</label>
+                        <input type="text" name="nombreAc" class="form-control" 
+                               ng-model="vm.participante.nombreAc" required/>
+                        <br/>
+                    </div>
+                    <input type="submit" wz-next value="Siguiente" class="btn btn-primary"
+                           ng-disabled="formNombreAc.$invalid"/>
+                </form>
+            </wz-step>
+            <wz-step wz-title="Datos Contacto">
+                <form name="formContacto">
+                    <div class="form-group">
+                        <label class="control-label" translate="cumminsApp.contacto.nombre" for="field_nombre">Nombre</label>*
+                        <input type="text" class="form-control" name="nombre" id="field_nombre"
+                               ng-model="vm.contacto.nombre" required/>
+                        <small class="text-muted">Esta es la persona que se asigna como contacto de la propuesta.</small>
+                        <br/>
+                        <label class="control-label" translate="cumminsApp.contacto.email" for="field_email">Email</label>*
+                        <input type="email" class="form-control" name="email" id="field_email"
+                               ng-model="vm.contacto.email" required/>
+                        <br/>
+                        <label for="password">Password</label>*
+                        <input type="password" name="password" class="form-control" required/>
+                        <br/>
+                        <label for="confirm">Confirmación Password</label>*
+                        <input type="password" name="confirm" class="form-control" required/>
+                        <br/>
+                        <label class="control-label" translate="cumminsApp.contacto.cargo" for="field_cargo">Cargo</label>*
+                        <input type="text" class="form-control" name="cargo" id="field_cargo"
+                               ng-model="vm.contacto.cargo" required/>
+                        <br/>
+                        <label class="control-label" translate="cumminsApp.contacto.direccion" for="field_direccion">Direccion</label>*
+                        <input type="text" class="form-control" name="direccion" id="field_direccion"
+                               ng-model="vm.contacto.direccion" required/>
+                        <br/>
+                        <label class="control-label" translate="cumminsApp.contacto.telefono" for="field_telefono">Telefono</label>*
+                        <input type="text" class="form-control" name="telefono" id="field_telefono"
+                               ng-model="vm.contacto.telefono" required/>
+                        <br/>
+                    </div>
+                    <input type="submit" wz-next value="Continuar" class="btn btn-primary"
+                           ng-disabled="formContacto.$invalid"/>
+                </form>
+            </wz-step>
+            <wz-step wz-title="Información AC">
+                <form name="formInfoAc">
+                    <div class="form-group">
+                        <label class="control-label" translate="cumminsApp.participanteDescripcion.misionVision" for="field_misionVision">Mision Vision</label>
+                        <textarea class="form-control" name="misionVision" id="field_misionVision"
+                               ng-model="vm.participanteDescripcion.misionVision"
+                               ng-maxlength="200"/>
+                        <br/>
+                        <label class="control-label" translate="cumminsApp.participanteDescripcion.aniosOperacion" for="field_aniosOperacion">Anios Operacion</label>
+                        <input type="number" class="form-control" name="aniosOperacion" id="field_aniosOperacion"
+                               ng-model="vm.participanteDescripcion.aniosOperacion" min="0"/>
+                        <br/>
+                        <label class="control-label" translate="cumminsApp.participanteDescripcion.programasServcios" for="field_programasServcios">Programas Servcios</label>
+                        <textarea class="form-control" name="programasServcios" id="field_programasServcios"
+                               ng-model="vm.participanteDescripcion.programasServcios"
+                               ng-maxlength="200"/>
+                        <br/>
+                        <label class="control-label" translate="cumminsApp.participanteDescripcion.resultadosLogros" for="field_resultadosLogros">Resultados Logros</label>
+                        <textarea class="form-control" name="resultadosLogros" id="field_resultadosLogros"
+                               ng-model="vm.participanteDescripcion.resultadosLogros"
+                               ng-maxlength="200"/>
+                        <br/>
+                        <label class="control-label" translate="cumminsApp.participanteDescripcion.numeroBeneficiarios" for="field_numeroBeneficiarios">Numero Beneficiarios</label>
+                        <input type="number" class="form-control" name="numeroBeneficiarios" id="field_numeroBeneficiarios"
+                               ng-model="vm.participanteDescripcion.numeroBeneficiarios" min="1" max="99999"/>
+                        <br/>
+                        <label class="control-label" translate="cumminsApp.participanteDescripcion.comentarios" for="field_comentarios">Comentarios</label>
+                        <textarea type="text" class="form-control" name="comentarios" id="field_comentarios"
+                               ng-model="vm.participanteDescripcion.comentarios"
+                               ng-maxlength="200"/>
+                        <br/>
+                        <label class="control-label" translate="cumminsApp.participanteDescripcion.logotipo" for="field_logotipo">Logotipo</label>
+                        <div ngf-drop ngf-change="vm.setLogotipo($file, vm.participanteDescripcion)" ngf-pattern="'image/*'">
+                            <div>
+                                <img data-ng-src="{{'data:' + vm.participanteDescripcion.logotipoContentType + ';base64,' + vm.participanteDescripcion.logotipo}}" style="max-height: 100px;" ng-if="vm.participanteDescripcion.logotipo"/>
+                                <div ng-if="vm.participanteDescripcion.logotipo" class="help-block clearfix">
+                                    <span class="pull-left">{{vm.participanteDescripcion.logotipoContentType}}, {{vm.byteSize(vm.participanteDescripcion.logotipo)}}</span>
+                                    <button ng-click="vm.participanteDescripcion.logotipo = null;
+                                        vm.participanteDescripcion.logotipoContentType = null;"
+                                            class="btn btn-default btn-xs pull-right">
+                                        <span class="glyphicon glyphicon-remove"></span>
+                                    </button>
+                                </div>
+                                <button type="file" ngf-select class="btn btn-default btn-block"
+                                        ngf-change="vm.setLogotipo($file, vm.participanteDescripcion)" accept="image/*" translate="entity.action.addimage">
+                                    Add image
+                                </button>
+                            </div>
+                            <input type="hidden" class="form-control" name="logotipo" id="field_logotipo"
+                                   ng-model="vm.participanteDescripcion.logotipo"
+                                   />
+                            <input type="hidden" class="form-control" name="logotipoContentType" id="field_logotipoContentType"
+                                   ng-model="vm.participanteDescripcion.logotipoContentType" />
+                        </div>
+                        <br/>
+                    </div>
+                    <input type="submit" wz-next value="Terminar" class="btn btn-primary"
+                           ng-disabled="formInfoAc.$invalid"/>
+                </form>
+            </wz-step>
+        </wizard>
+
+        <div ng-show="!vm.error && vm.terminado">
+            <div class="col-md-12">
+                <div class="alert alert-success" role="alert">
+                    Gracias por tu participación, se ha enviado un correo electrónico a la dirección proporcionada para continuar el registro.
+                </div>
+            </div>
+        </div>
+        <div ng-show="vm.error && vm.terminado">
+            <div class="col-md-12">
+                <div class="alert alert-danger" role="alert">
+                    Los sentimos ha ocurrido un error al procesar su solicitud, favor de intentarlo mas tarde.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
