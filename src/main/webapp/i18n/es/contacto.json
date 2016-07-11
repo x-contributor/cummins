@@ -19,8 +19,8 @@
             "nombre": "Nombre",
             "email": "Email",
             "cargo": "Cargo",
-            "direccion": "Direccion",
-            "telefono": "Telefono",
+            "direccion": "Dirección",
+            "telefono": "Teléfono",
             "participante": "Participante"
         }
     }

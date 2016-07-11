@@ -8,8 +8,7 @@
                 <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand logo" href="#/" ng-click="vm.collapseNavbar()" style="color: #fff">
-                <img class="logo-img" src="content/images/logo2.png"/>
-                <span translate="global.title">Cummins</span> <span class="navbar-version">v{{VERSION}}</span>
+                <img class="logo-img" src="content/images/logo.png"/>
             </a>
         </div>
         <div class="navbar-collapse" uib-collapse="vm.isNavbarCollapsed" ng-switch="vm.isAuthenticated()">
@@ -124,19 +123,19 @@
                         </span>
                     </a>
                     <ul class="dropdown-menu" uib-dropdown-menu>
-                        <li ui-sref-active="active" ng-switch-when="true">
+                        <li ui-sref-active="active" ng-switch-when="true" ng-show="false">
                             <a ui-sref="settings" ng-click="vm.collapseNavbar()">
                                 <span class="glyphicon glyphicon-wrench"></span>&nbsp;
                                 <span translate="global.menu.account.settings">Settings</span>
                             </a>
                         </li>
-                        <li ui-sref-active="active" ng-switch-when="true">
+                        <li ui-sref-active="active" ng-switch-when="true" ng-show="false">
                             <a ui-sref="password" ng-click="vm.collapseNavbar()">
                                 <span class="glyphicon glyphicon-lock"></span>&nbsp;
                                 <span translate="global.menu.account.password">Password</span>
                             </a>
                         </li>
-                        <li ui-sref-active="active" ng-switch-when="true">
+                        <li ui-sref-active="active" ng-switch-when="true" ng-show="false">
                             <a ui-sref="sessions" ng-click="vm.collapseNavbar()">
                                 <span class="glyphicon glyphicon-cloud"></span>&nbsp;
                                 <span translate="global.menu.account.sessions">Sessions</span>
@@ -154,7 +153,7 @@
                                 <span translate="global.menu.account.login">Sign in</span>
                             </a>
                         </li>
-                        <li ui-sref-active="active" ng-switch-when="false">
+                        <li ui-sref-active="active" ng-switch-when="false" ng-show="false">
                             <a ui-sref="register" ng-click="vm.collapseNavbar()">
                                 <span class="glyphicon glyphicon-plus-sign"></span>&nbsp;
                                 <span translate="global.menu.account.register">Register</span>
@@ -171,43 +170,43 @@
                         </span>
                     </a>
                     <ul class="dropdown-menu" uib-dropdown-menu>
-                        <li ui-sref-active="active">
+                        <li ui-sref-active="active" >
                             <a ui-sref="user-management" ng-click="vm.collapseNavbar()">
                                 <span class="glyphicon glyphicon-user"></span>&nbsp;
                                 <span translate="global.menu.admin.userManagement">User management</span>
                             </a>
                         </li>
-                        <li ui-sref-active="active">
+                        <li ui-sref-active="active" ng-show="false">
                             <a ui-sref="jhi-metrics" ng-click="vm.collapseNavbar()">
                                 <span class="glyphicon glyphicon-dashboard"></span>&nbsp;
                                 <span translate="global.menu.admin.metrics">Metrics</span>
                             </a>
                         </li>
-                        <li ui-sref-active="active">
+                        <li ui-sref-active="active" ng-show="false">
                             <a ui-sref="jhi-health" ng-click="vm.collapseNavbar()">
                                 <span class="glyphicon glyphicon-heart"></span>&nbsp;
                                 <span translate="global.menu.admin.health">Health</span>
                             </a>
                         </li>
-                        <li ui-sref-active="active">
+                        <li ui-sref-active="active" ng-show="false">
                             <a ui-sref="jhi-configuration" ng-click="vm.collapseNavbar()">
                                 <span class="glyphicon glyphicon-list-alt"></span>&nbsp;
                                 <span translate="global.menu.admin.configuration">Configuration</span>
                             </a>
                         </li>
-                        <li ui-sref-active="active">
+                        <li ui-sref-active="active" ng-show="false">
                             <a ui-sref="audits" ng-click="vm.collapseNavbar()">
                                 <span class="glyphicon glyphicon-bell"></span>&nbsp;
                                 <span translate="global.menu.admin.audits">Audits</span>
                             </a>
                         </li>
-                        <li ui-sref-active="active">
-                            <a ui-sref="logs" ng-click="vm.collapseNavbar()">
+                        <li ui-sref-active="active" ng-show="false">
+                            <a ui-sref="logs" ng-click="vm.collapseNavbar()" >
                                 <span class="glyphicon glyphicon-tasks"></span>&nbsp;
                                 <span translate="global.menu.admin.logs">Logs</span>
                             </a>
                         </li>
-                        <li ng-hide="vm.inProduction || vm.swaggerDisabled" ui-sref-active="active">
+                        <li ng-hide="vm.inProduction || vm.swaggerDisabled" ui-sref-active="active" ng-show="false">
                             <a ui-sref="docs" ng-click="vm.collapseNavbar()">
                                 <span class="glyphicon glyphicon-book"></span>&nbsp;
                                 <span translate="global.menu.admin.apidocs">API</span>
