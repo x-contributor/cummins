@@ -22,5 +22,15 @@
     "bower_components",
     "test",
     "tests"
-  ]
+  ],
+  "_release": "2.4.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "2.4.0",
+    "commit": "6d8fc5462af16a564fcfde83b0ca13d15e69a6cd"
+  },
+  "_source": "https://github.com/assisrafael/bower-angular-input-masks.git",
+  "_target": "^2.4.0",
+  "_originalSource": "angular-input-masks",
+  "_direct": true
 }
