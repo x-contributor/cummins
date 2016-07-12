@@ -5,9 +5,9 @@
             .module('cumminsApp')
             .controller('RegistroPropuestaController', RegistroPropuestaController);
 
-    RegistroPropuestaController.$inject = ['$scope', '$http', 'Principal', 'Proyecto', 'Respuesta', 'Participante'];
+    RegistroPropuestaController.$inject = ['$scope', '$http', 'Principal', 'Proyecto', 'Respuesta', 'Participante', '$window'];
 
-    function RegistroPropuestaController($scope, $http, Principal, Proyecto, Respuesta, Participante) {
+    function RegistroPropuestaController($scope, $http, Principal, Proyecto, Respuesta, Participante, $window) {
         var vm = this;
 
         vm.participanteDescripcion = null;
@@ -37,6 +37,7 @@
             id: null
         };
         vm.respuesta = {};
+        vm.imprimir = imprimir;
 
         Principal.identity().then(function (account) {
             vm.email = account.email;
@@ -53,6 +54,7 @@
                 guardarProyecto();
             }, function errorCallback(response) {
                 console.log("ERROR");
+                vm.terminado = true;
             });
         }
         
@@ -104,6 +106,10 @@
             vm.isSaving = false;
             vm.error = true;
             vm.terminado = true;
+        }
+        
+        function imprimir(){
+            $window.print();
         }
 
         /**

@@ -80,7 +80,7 @@
                     </div>    
                     <div ng-show="vm.propuesta.seccion11.nuevo.origenIdea.otro">
                         <input type="text" name="otroIdea" class="form-control" 
-                               ng-model="vm.propuesta.seccion11.nuevo.origenIdea.otro.comentario"/>
+                               ng-model="vm.propuesta.seccion11.nuevo.otro.origenIdea.comentario"/>
                     </div>
                     <br/>
 
@@ -555,7 +555,7 @@
                                 <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
                             </button>
                         </div>
-                    </div>
+                    </div> 
                     <br/>
                     <input type="submit" wz-next value="Terminar" class="btn btn-primary"
                            ng-disabled="formNombreAc.$invalid"/>
@@ -567,6 +567,265 @@
                 <div class="alert alert-success" role="alert">
                     Gracias por tu participación, los datos se han guardado correctamente.
                 </div>
+            </div>
+            <br/>
+            <div class="col-md-12">
+                <form name="formResumen">
+                    <dl class="dl-horizontal jh-entity-details">
+                        <h3>Datos Generales:</h3>
+                        <br/>
+                        <div ng-show="vm.proyecto.proyecto">
+                            <dt>Nombre del Proyecto:</dt>
+                            <dd>
+                                <span>{{vm.proyecto.proyecto}}</span>
+                            </dd>
+                        </div>
+                        <div ng-show="vm.proyecto.tematica">
+                            <dt>Temática:</dt>
+                            <dd>
+                                <span ng-show="vm.proyecto.tematica === '0'">Educación</span>
+                                <span ng-show="vm.proyecto.tematica === '1'">Justicia Social</span>
+                                <span ng-show="vm.proyecto.tematica === '2'">Medio Ambiente</span>
+                            </dd>
+                        </div>
+                        <div ng-show="vm.proyecto.tipoProyectto">
+                            <dt>Objetivo de la propuesta:</dt>
+                            <dd>
+                                <span ng-show="vm.proyecto.tipoProyectto === '1'">Petición para mejorar un programa o proyecto ya existente</span>
+                                <span ng-show="vm.proyecto.tipoProyectto === '2'">Proyecto o programa nuevo</span>
+                            </dd>
+                        </div>
+                        <div ng-show="vm.proyecto.tipoProyectto === '2'">
+                            <h3>Diagnóstico del Proyecto o programa/Justificación:</h3>
+                            <br/>
+                            <div ng-show="true">
+                                <dt>¿De dónde surge la idea del proyecto?</dt>
+                                <dd>
+                                    <span ng-show="vm.propuesta.seccion11.nuevo.origenIdea.comunidad">De la comunidad o beneficiarios</span>
+                                    <span ng-show="vm.propuesta.seccion11.nuevo.origenIdea.osc">De la OSC</span>
+                                    <span ng-show="vm.propuesta.seccion11.nuevo.origenIdea.otro">Otro: {{vm.propuesta.seccion11.nuevo.otro.origenIdea.comentario}}</span>
+                                </dd>
+                            </div>
+                            <div ng-show="vm.propuesta.seccion11.nuevo.necesidad">
+                                <dt>El proyecto forma parte de una necesidad detectada en la comunidad</dt>
+                                <dd>
+                                    <span ng-show="vm.propuesta.seccion11.nuevo.necesidad === '0'">Se observó</span>
+                                    <span ng-show="vm.propuesta.seccion11.nuevo.necesidad === '1'">Un estudio</span>
+                                    <span ng-show="vm.propuesta.seccion11.nuevo.necesidad === '2'">Un testimonio</span>
+                                    <span ng-show="vm.propuesta.seccion11.nuevo.necesidad === '3'">Otro: {{vm.propuesta.seccion11.nuevo.otro.necesidad.comentario}}</span>
+                                </dd>
+                            </div>
+                            <div ng-show="true">
+                                <dt>¿Por qué es importante este proyecto o programa para la organización?</dt>
+                                <dd>
+                                    <span ng-show="vm.propuesta.seccion11.nuevo.importancia.ampliar">Ampliar el número de programas o servicios</span>
+                                    <span ng-show="vm.propuesta.seccion11.nuevo.importancia.continuidad">Le doy continuidad a un proyecto anterior: {{vm.propuesta.seccion11.nuevo.otro.importancia.continuidad.comentario}}</span>
+                                    <span ng-show="vm.propuesta.seccion11.nuevo.importancia.mejora">Mejora la calidad de atención ¿cómo?: {{vm.propuesta.seccion11.nuevo.otro.importancia.mejora.comentario}}</span>
+                                    <span ng-show="vm.propuesta.seccion11.nuevo.importancia.contribucion">Contribuyo a la solución de un problema nuevo en mis beneficiarios ¿cómo?: {{vm.propuesta.seccion11.nuevo.otro.importancia.contribucion.comentario}}</span>
+                                    <span ng-show="vm.propuesta.seccion11.nuevo.importancia.opInterna">Mejoro mi operación interna ¿cómo?: {{vm.propuesta.seccion11.nuevo.otro.importancia.opInterna.comentario}}</span>
+                                    <span ng-show="vm.propuesta.seccion11.nuevo.importancia.ahorro">Genero un ahorro a mis gastos: {{vm.propuesta.seccion11.nuevo.otro.importancia.ahorro.comentario}}</span>
+                                    <span ng-show="vm.propuesta.seccion11.nuevo.importancia.ingreso">Genero un ingreso nuevo: {{vm.propuesta.seccion11.nuevo.otro.importancia.ingreso.comentario}}</span>
+                                    <span ng-show="vm.propuesta.seccion11.nuevo.importancia.otro">Otro ¿cuál?: {{vm.propuesta.seccion11.nuevo.otro.importancia.otro.comentario}}</span>
+                                </dd>
+                            </div>
+                            <h3>Objetivo General</h3>
+                            <br/>
+                            <div ng-show="vm.propuesta.seccion2.nuevo.objetivoGeneral.actividad">
+                                <dt>¿Cuál es la actividad principal que vas a emprender?</dt>
+                                <dd>
+                                    <span>{{vm.propuesta.seccion2.nuevo.objetivoGeneral.actividad}}</span>
+                                </dd>
+                            </div>
+                            <div ng-show="vm.propuesta.seccion2.nuevo.objetivoGeneral.situacion">
+                                <dt>¿Para cambiar qué situación?</dt>
+                                <dd>
+                                    <span>{{vm.propuesta.seccion2.nuevo.objetivoGeneral.situacion}}</span>
+                                </dd>
+                            </div>
+                            <div ng-show="vm.propuesta.seccion2.nuevo.objetivoGeneral.beneficio">
+                                <dt>¿Obtener qué beneficio?</dt>
+                                <dd>
+                                    <span>{{vm.propuesta.seccion2.nuevo.objetivoGeneral.beneficio}}</span>
+                                </dd>
+                            </div>
+                            <div ng-show="vm.propuesta.seccion2.nuevo.objetivoGeneral.principalBeneficio">
+                                <dt>¿Cuál es el principal beneficio que vas a lograr?</dt>
+                                <dd>
+                                    <span>{{vm.propuesta.seccion2.nuevo.objetivoGeneral.principalBeneficio}}</span>
+                                </dd>
+                            </div>
+                            <div ng-show="vm.propuesta.seccion2.nuevo.objetivoGeneral.quienes">
+                                <dt>¿Para quienes? Mujeres, niños, edad, discapacitados:</dt>
+                                <dd>
+                                    <span>{{vm.propuesta.seccion2.nuevo.objetivoGeneral.quienes}}</span>
+                                </dd>
+                            </div>
+                            <div ng-show="vm.propuesta.seccion2.nuevo.objetivoGeneral.donde">
+                                <dt>¿En dónde? Municipio, colonia:</dt>
+                                <dd>
+                                    <span>{{vm.propuesta.seccion2.nuevo.objetivoGeneral.donde}}</span>
+                                </dd>
+                            </div>
+                            <div ng-show="vm.propuesta.seccion2.nuevo.objetivoGeneral.como">
+                                <dt>¿Cómo? A través de capacitación, consultas, equipar, etc.:</dt>
+                                <dd>
+                                    <span>{{vm.propuesta.seccion2.nuevo.objetivoGeneral.como}}</span>
+                                </dd>
+                            </div>
+                        </div>
+                        <div ng-show="vm.proyecto.tipoProyectto === '1'">
+                            <h3>Diagnóstico del Proyecto o programa/Justificación:</h3>
+                            <br/>
+                            <div ng-show="true">
+                                <dt>¿Por qué es importante esta mejora para el programa o proyecto descrito?</dt>
+                                <dd>
+                                    <span ng-show="vm.propuesta.seccion11.peticion.importancia.aumentar">Aumentar la capacidad de atención de beneficiarios en los programas o servicios actuales</span>
+                                    <span ng-show="vm.propuesta.seccion11.peticion.importancia.mejora">Mejora la calidad de atención ¿cómo?: {{vm.propuesta.seccion11.peticion.otro.importancia.mejora}}</span>
+                                    <span ng-show="vm.propuesta.seccion11.peticion.importancia.opInterna">Mejoro mi operación interna ¿cómo?: {{vm.propuesta.seccion11.peticion.otro.importancia.opInterna}}</span>
+                                    <span ng-show="vm.propuesta.seccion11.peticion.importancia.ahorro">Genero un ahorro a mis gastos: {{vm.propuesta.seccion11.peticion.otro.importancia.ahorro}}</span>
+                                    <span ng-show="vm.propuesta.seccion11.peticion.importancia.ingreso">Genero un ingreso nuevo: {{vm.propuesta.seccion11.peticion.otro.importancia.ingreso}}</span>
+                                    <span ng-show="vm.propuesta.seccion11.peticion.importancia.otro">Otro ¿cuál?: {{vm.propuesta.seccion11.peticion.otro.importancia.otro}}</span>
+                                </dd>
+                            </div>
+                            <h3>Objetivo General</h3>
+                            <br/>
+                            <div ng-show="vm.propuesta.seccion2.peticion.objetivoGeneral.peticion">
+                                <dt>¿Qué estas pidiendo?</dt>
+                                <dd>
+                                    <span>{{vm.propuesta.seccion2.peticion.objetivoGeneral.peticion}}</span>
+                                </dd>
+                            </div>
+                            <div ng-show="vm.propuesta.seccion2.peticion.objetivoGeneral.mejorar">
+                                <dt>Para mejorar ¿qué proyecto/ programa o servicio? ¿Qué ofrece este programa o servicio?</dt>
+                                <dd>
+                                    <span>{{vm.propuesta.seccion2.peticion.objetivoGeneral.mejorar}}</span>
+                                </dd>
+                            </div>
+                            <div ng-show="vm.propuesta.seccion2.peticion.objetivoGeneral.tiempo">
+                                <dt>¿Cuánto tiempo tienes operando el proyecto/programa u ofreciendo el servicio?</dt>
+                                <dd>
+                                    <span>{{vm.propuesta.seccion2.peticion.objetivoGeneral.tiempo}}</span>
+                                </dd>
+                            </div>
+                            <div ng-show="vm.propuesta.seccion2.peticion.objetivoGeneral.como">
+                                <dt>¿Cómo vas a mejorar el proyecto/programa o servicio? ¿cuál es la situación actual y cómo va a ser diferente después de la implementación de esta mejora?</dt>
+                                <dd>
+                                    <span>{{vm.propuesta.seccion2.peticion.objetivoGeneral.como}}</span>
+                                </dd>
+                            </div>
+                            <div ng-show="vm.propuesta.seccion2.peticion.objetivoGeneral.medida">
+                                <dt>¿Cómo vas a medir esa mejora?, ¿en cuánto tiempo?</dt>
+                                <dd>
+                                    <span>{{vm.propuesta.seccion2.peticion.objetivoGeneral.medida}}</span>
+                                </dd>
+                            </div>
+                        </div>
+                        <div id="resumenObjetivosEspecificos">
+                            <h3>Objetivos específicos:</h3>
+                            <br/>
+                            <div ng-repeat="objetivo in vm.objetivosEspecificos">
+                                <dt>Objetivo específico:</dt>
+                                <dd>
+                                    <span>{{$index + 1}}</span>
+                                </dd>
+                                <dt>Actividad secundaria o derivada en ar, er, ir:</dt>
+                                <dd>
+                                    <span>{{vm.objetivosEspecificos[$index].actividadSecundaria}}</span>
+                                </dd>
+                                <dt>¿Cuál es el principal beneficio que vas a lograr?</dt>
+                                <dd>
+                                    <span>{{vm.objetivosEspecificos[$index].principalBeneficio}}</span>
+                                </dd>
+                                <dt>¿Para quienes? Mujeres, niños, edad, discapacitados:</dt>
+                                <dd>
+                                    <span>{{vm.objetivosEspecificos[$index].quienes}}</span>
+                                </dd>
+                                <dt>¿En dónde? Municipio, colonia:</dt>
+                                <dd>
+                                    <span>{{vm.objetivosEspecificos[$index].donde}}</span>
+                                </dd>
+                                <dt>¿Cómo? A través de capacitación, consultas, equipar, etc.:</dt>
+                                <dd>
+                                    <span>{{vm.objetivosEspecificos[$index].como}}</span>
+                                </dd>
+                            </div>
+                        </div>
+                        <div id="resumenBeneficiarios">
+                            <h3>Beneficiarios y comunidades atendidas:</h3>
+                            <br/>
+                            <div ng-repeat="beneficiados in vm.grupoBeneficiados">
+                                <dt>Grupo de beneficiados:</dt>
+                                <dd>
+                                    <span ng-show="vm.propuesta.seccion3.beneficiados[$index].hombre">Hombres</span>
+                                    <span ng-show="vm.propuesta.seccion3.beneficiados[$index].mujer">Mujeres</span>
+                                </dd>
+                                <dt>Rango mínimo de edad de los beneficiarios:</dt>
+                                <dd>
+                                    <span>{{vm.propuesta.seccion3.beneficiados[$index].minimo}} años</span>
+                                </dd>
+                                <dt>Rango máximo de edad de los beneficiarios:</dt>
+                                <dd>
+                                    <span>{{vm.propuesta.seccion3.beneficiados[$index].maximo}} años</span>
+                                </dd>
+                                <dt>Total de Beneficiarios:</dt>
+                                <dd>
+                                    <span>{{vm.propuesta.seccion3.beneficiados[$index].totalBeneficiarios}}</span>
+                                </dd>
+                                <dt>Beneficiarios que participan regularmente:</dt>
+                                <dd>
+                                    <span>{{vm.propuesta.seccion3.beneficiados[$index].beneficiariosRegulares}}</span>
+                                </dd>
+                                
+                                <dt>Motivos:</dt>
+                                <dd>
+                                    <span ng-show="vm.propuesta.seccion3.beneficiados[$index].situacion">Situación de riesgo / enfermedad</span>
+                                    <span ng-show="vm.propuesta.seccion3.beneficiados[$index].discapacidad.valor">Discapacidad ¿Cuál?</span>
+                                    <span ng-show="vm.propuesta.seccion3.beneficiados[$index].violencia">Violencia</span>
+                                    <span ng-show="vm.propuesta.seccion3.beneficiados[$index].enfermedad.valor">Enfermedad ¿Cuál?: {{vm.propuesta.seccion3.beneficiados[$index].enfermedad.comentario}}</span>
+                                    <span ng-show="vm.propuesta.seccion3.beneficiados[$index].abandono">Abandono</span>
+                                    <span ng-show="vm.propuesta.seccion3.beneficiados[$index].marginacion">Marginación</span>
+                                    <span ng-show="vm.propuesta.seccion3.beneficiados[$index].desnutricion">Desnutrición</span>
+                                    <span ng-show="vm.propuesta.seccion3.beneficiados[$index].otra.valor">Otra ¿Cuál?: {{vm.propuesta.seccion3.beneficiados[$index].otra.comentario}}</span>
+                                </dd>
+                                
+                            </div>
+                        </div>
+                        <div id="resumenInversion">
+                            <h3>Inversión requerida:</h3>
+                            <br/>
+                            <dt>Monto:</dt>
+                            <dd>
+                                <p ng-show="vm.propuesta.seccion4.construccion"><span>{{vm.propuesta.seccion4.monto.construccion | currency}}</span></p>
+                                <p ng-show="vm.propuesta.seccion4.materiales"><span>{{vm.propuesta.seccion4.monto.materiales | currency}}</span></p>
+                                <p ng-show="vm.propuesta.seccion4.honorarios"><span>{{vm.propuesta.seccion4.monto.honorarios | currency}}</span></p>
+                                <p ng-show="vm.propuesta.seccion4.otro"><span>{{vm.propuesta.seccion4.monto.otro | currency}}</span></p>
+                                <p ng-show="vm.propuesta.seccion4.especie"><span>{{vm.propuesta.seccion4.monto.especie}}</span></p>
+                            </dd>
+                            <dt>Tiempo total de implementación:</dt>
+                            <dd>
+                                <p><span>{{vm.propuesta.seccion4.monto.semanas}} semanas</span></p>
+                            </dd>
+                        </div>
+                        <div id="resumenObjetivosEspecificos">
+                            <h3>Objetivos específicos:</h3>
+                            <br/>
+                            <div ng-repeat="objetivo in vm.objetivosEspecificos">
+                                <dt>Objetivo específico: </dt>
+                                <dd>
+                                    <p><span>{{$index + 1}}</span></p>
+                                    <div ng-repeat="accion in objetivo.acciones">
+                                        <p><span>Acción {{$parent.$index + 1}}.{{$index + 1}}:</span> &nbsp; <span> {{vm.objetivosEspecificos[$parent.$index].acciones[$index].descripcionAccion}}</span></p>
+                                    </div>
+                                </dd>
+                            </div>
+                            
+                        </div>
+                    </dl>
+                    
+                    <br/>
+                    <input type="submit" value="Imprimir" class="btn btn-primary"
+                           ng-disabled="!vm.terminado" ng-click="vm.imprimir();"/>
+                </form>
             </div>
         </div>
         <div ng-show="vm.error && vm.terminado">
