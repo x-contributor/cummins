@@ -1455,7 +1455,7 @@ dd {
 @media (min-width: 768px) {
   .dl-horizontal dt {
     float: left;
-    width: 160px;
+    width: 260px;
     overflow: hidden;
     clear: left;
     text-align: right;
@@ -1464,6 +1464,7 @@ dd {
   }
   .dl-horizontal dd {
     margin-left: 180px;
+    padding-left: 100px;
   }
 }
 abbr[title],
