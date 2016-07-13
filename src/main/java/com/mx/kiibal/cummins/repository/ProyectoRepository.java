@@ -12,4 +12,8 @@ import java.util.List;
 @SuppressWarnings("unused")
 public interface ProyectoRepository extends JpaRepository<Proyecto,Long> {
 
+    @Query("SELECT p "
+            + " FROM User u, VoluntarioVisitador v, Proyecto p"
+            + " WHERE  u.firstName = v.nombre AND v = p.visitador AND u.login = ?1")
+    List<Proyecto> obtenerProyectosVisitador(String login);
 }

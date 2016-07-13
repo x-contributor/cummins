@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.inject.Inject;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.security.Principal;
 import java.util.List;
 import java.util.Optional;
 
@@ -125,6 +126,23 @@ public class ProyectoResource {
         log.debug("REST request to delete Proyecto : {}", id);
         proyectoRepository.delete(id);
         return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert("proyecto", id.toString())).build();
+    }
+    
+    /**
+     * GET  /proyectos : get all the proyectos.
+     *
+     * @param principal
+     * @return the ResponseEntity with status 200 (OK) and the list of proyectos in body
+     */
+    @RequestMapping(value = "/proyectos/voluntario",
+        method = RequestMethod.GET,
+        produces = MediaType.APPLICATION_JSON_VALUE)
+    @Timed
+    public List<Proyecto> getProyectosVoluntario(Principal principal) {
+        log.debug("REST request to get all Proyectos");
+        log.debug("*** principal: "+principal.getName());
+        List<Proyecto> proyectos = proyectoRepository.obtenerProyectosVisitador(principal.getName());
+        return proyectos;
     }
 
 }

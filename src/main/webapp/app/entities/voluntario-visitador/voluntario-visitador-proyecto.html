@@ -1,0 +1,27 @@
+<div>
+    <h2 translate="cumminsApp.voluntarioVisitador.home.title">Voluntario Visitadors</h2>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                    <th><span translate="global.field.id">ID</span></th>
+                    <th><span translate="cumminsApp.proyecto.proyecto">Proyecto</span></th>
+                    <th><span translate="cumminsApp.proyecto.tematica">Tematica</span></th>
+                    <th><span translate="cumminsApp.proyecto.tipoProyectto">Tipo Proyectto</span></th>
+                    <th><span translate="cumminsApp.proyecto.participante">Participante</span></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="proyecto in vm.proyectos track by proyecto.id">
+                    <td><a ui-sref="proyecto-detail({id:proyecto.id})">{{proyecto.id}}</a></td>
+                    <td>{{proyecto.proyecto}}</td>
+                    <td translate="{{'cumminsApp.Tematica.' + proyecto.tematica}}">{{proyecto.tematica}}</td>
+                    <td translate="{{'cumminsApp.TipoProyecto.' + proyecto.tipoProyectto}}">{{proyecto.tipoProyectto}}</td>
+                    <td>
+                        <a ui-sref="participante-detail({id:proyecto.participante.id})">{{proyecto.participante.nombreAc}}</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

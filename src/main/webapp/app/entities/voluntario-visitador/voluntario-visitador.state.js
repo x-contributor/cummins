@@ -132,6 +132,29 @@
                     $state.go('^');
                 });
             }]
+        })
+        .state('voluntario-visitador-proyecto', {
+            parent: 'entity',
+            url: '/voluntario-proyecto',
+            data: {
+                authorities: ['ROLE_ADMIN','ROLE_VOLUNTARIO'],
+                pageTitle: 'cumminsApp.voluntarioVisitador.home.title'
+            },
+            views: {
+                'content@': {
+                    templateUrl: 'app/entities/voluntario-visitador/voluntario-visitador-proyecto.html',
+                    controller: 'VoluntarioVisitadoProyectorController',
+                    controllerAs: 'vm'
+                }
+            },
+            resolve: {
+                translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
+                    $translatePartialLoader.addPart('voluntarioVisitador');
+                    $translatePartialLoader.addPart('global');
+                    $translatePartialLoader.addPart('proyecto');
+                    return $translate.refresh();
+                }]
+            }
         });
     }
 
