@@ -2,7 +2,7 @@
     "cumminsApp": {
         "voluntarioVisitador" : {
             "home": {
-                "title": "Voluntario Visitadors",
+                "title": "Voluntario Visitador",
                 "createLabel": "Crear nuevo Voluntario Visitador",
                 "createOrEditLabel": "Crear o editar Voluntario Visitador",
                 "search": "Search for Voluntario Visitador"
@@ -17,7 +17,7 @@
                 "title": "Voluntario Visitador"
             },
             "nombre": "Nombre",
-            "telefono": "Telefono",
+            "telefono": "Teléfono",
             "proyecto": "Proyecto"
         }
     }

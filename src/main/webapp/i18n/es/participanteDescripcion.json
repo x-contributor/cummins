@@ -2,7 +2,7 @@
     "cumminsApp": {
         "participanteDescripcion" : {
             "home": {
-                "title": "Participante Descripcions",
+                "title": "Descripción Participante ",
                 "createLabel": "Crear nuevo Participante Descripcion",
                 "createOrEditLabel": "Crear o editar Participante Descripcion",
                 "search": "Search for Participante Descripcion"
@@ -14,7 +14,7 @@
                 "question": "¿Seguro que quiere eliminar Participante Descripcion {{ id }}?"
             },
             "detail": {
-                "title": "Participante Descripcion"
+                "title": "Descripción Participante"
             },
             "misionVision": "Misión Visión",
             "aniosOperacion": "Años Operación",

@@ -31,7 +31,7 @@
 
         <div class="form-group">
             <label translate="cumminsApp.proyectoConcurso.proyecto" for="field_proyecto">Proyecto</label>
-            <select class="form-control" id="field_proyecto" name="proyecto" ng-model="vm.proyectoConcurso.proyecto" ng-options="proyecto as proyecto.id for proyecto in vm.proyectos | orderBy:'id' track by proyecto.id">
+            <select class="form-control" id="field_proyecto" name="proyecto" ng-model="vm.proyectoConcurso.proyecto" ng-options="proyecto as proyecto.proyecto for proyecto in vm.proyectos | orderBy:'id' track by proyecto.id">
                 <option value=""></option>
             </select>
         </div>

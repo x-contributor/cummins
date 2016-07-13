@@ -11,19 +11,34 @@
         <div class="form-group" ng-show="vm.voluntarioVisitador.id">
             <label for="id" translate="global.field.id">ID</label>
             <input type="text" class="form-control" id="id" name="id"
-                    ng-model="vm.voluntarioVisitador.id" readonly />
+                   ng-model="vm.voluntarioVisitador.id" readonly />
         </div>
         <div class="form-group">
             <label class="control-label" translate="cumminsApp.voluntarioVisitador.nombre" for="field_nombre">Nombre</label>
             <input type="text" class="form-control" name="nombre" id="field_nombre"
-                    ng-model="vm.voluntarioVisitador.nombre"
-                     />
+                   ng-model="vm.voluntarioVisitador.nombre"
+                   />
         </div>
         <div class="form-group">
             <label class="control-label" translate="cumminsApp.voluntarioVisitador.telefono" for="field_telefono">Telefono</label>
             <input type="text" class="form-control" name="telefono" id="field_telefono"
-                    ng-model="vm.voluntarioVisitador.telefono"
-                     />
+                   ng-model="vm.voluntarioVisitador.telefono"
+                   />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_email">Email</label>
+            <input type="email" class="form-control" name="email" id="field_email"
+                   ng-model="vm.user.email"
+                   />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_pass">Contraseña</label>
+            <input type="password" class="form-control" name="pass" id="field_pass"
+                   ng-model="vm.user.password"
+                   />
+        </div>
+        <div class="alert alert-danger" ng-show="vm.error">
+            Error al registrar al voluntario. Favor de intentarlo mas tarde.
         </div>
 
     </div>
@@ -31,7 +46,7 @@
         <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
             <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
         </button>
-        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+        <button type="submit" ng-disabled=" vm.isSaving" class="btn btn-primary">
             <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
         </button>
     </div>

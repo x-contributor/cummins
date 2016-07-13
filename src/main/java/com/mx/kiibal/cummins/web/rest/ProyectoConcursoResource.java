@@ -1,8 +1,13 @@
 package com.mx.kiibal.cummins.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
+import com.mx.kiibal.cummins.domain.Proyecto;
 import com.mx.kiibal.cummins.domain.ProyectoConcurso;
+import com.mx.kiibal.cummins.domain.enumeration.EstatusProyecto;
+import com.mx.kiibal.cummins.repository.ParticipanteRepository;
 import com.mx.kiibal.cummins.repository.ProyectoConcursoRepository;
+import com.mx.kiibal.cummins.repository.ProyectoRepository;
+import com.mx.kiibal.cummins.service.MailService;
 import com.mx.kiibal.cummins.web.rest.util.HeaderUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -30,6 +35,12 @@ public class ProyectoConcursoResource {
     @Inject
     private ProyectoConcursoRepository proyectoConcursoRepository;
     
+    @Inject
+    private MailService mailService;
+    
+    @Inject 
+    private ProyectoRepository proyectoRepository;
+    
     /**
      * POST  /proyecto-concursos : Create a new proyectoConcurso.
      *
@@ -47,6 +58,17 @@ public class ProyectoConcursoResource {
             return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("proyectoConcurso", "idexists", "A new proyectoConcurso cannot already have an ID")).body(null);
         }
         ProyectoConcurso result = proyectoConcursoRepository.save(proyectoConcurso);
+        log.debug(result.getProyecto().toString());
+        if (proyectoConcurso.getEstatus() == EstatusProyecto.ACEPTADO) {
+            Proyecto proeyctoId = proyectoRepository.findOne(proyectoConcurso.getProyecto().getId());
+            String email = proeyctoId.getParticipante().getContacto().getEmail();
+            try {
+                mailService.sendEmail(email, "Concurso Filantropía 2016", "Su proyecto ha sido ACEPTADO", false, false);
+            } catch (Exception e) {
+                log.error("error al enviar el correo", e);
+            }
+            
+        }
         return ResponseEntity.created(new URI("/api/proyecto-concursos/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert("proyectoConcurso", result.getId().toString()))
             .body(result);

@@ -67,5 +67,9 @@
   "scripts": {
     "test": "gulp test",
     "postinstall": "webdriver-manager update"
+  },
+  "dependencies": {
+    "angular-input-masks": "^2.4.0",
+    "angular-wizard": "^0.6.1"
   }
 }

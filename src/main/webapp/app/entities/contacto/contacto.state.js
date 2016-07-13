@@ -13,7 +13,7 @@
             parent: 'entity',
             url: '/contacto',
             data: {
-                authorities: ['ROLE_USER'],
+                authorities: ['ROLE_ADMIN'],
                 pageTitle: 'cumminsApp.contacto.home.title'
             },
             views: {

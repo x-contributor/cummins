@@ -1,7 +1,7 @@
 <div>
     <h2 translate="cumminsApp.participanteDescripcion.home.title">Participante Descripcions</h2>
     <jhi-alert></jhi-alert>
-    <div class="container-fluid">
+    <div class="container-fluid" ng-show="false">
         <div class="row">
             <div class="col-xs-4 no-padding-left">
                 <button class="btn btn-primary" ui-sref="participante-descripcion.new" >
@@ -46,25 +46,28 @@
                         <span ng-if="participanteDescripcion.logotipo">{{participanteDescripcion.logotipoContentType}}, {{vm.byteSize(participanteDescripcion.logotipo)}}</span>
                     </td>
                     <td>
-                        <a ui-sref="participante-detail({id:participanteDescripcion.participante.id})">{{participanteDescripcion.participante.id}}</a>
+                        <a ui-sref="participante-detail({id:participanteDescripcion.participante.id})">{{participanteDescripcion.participante.nombreAc}}</a>
                     </td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">
                             <button type="submit"
                                     ui-sref="participante-descripcion-detail({id:participanteDescripcion.id})"
-                                    class="btn btn-info btn-sm">
+                                    class="btn btn-info btn-sm"
+                                    ng-show="false">
                                 <span class="glyphicon glyphicon-eye-open"></span>
                                 <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
                             </button>
                             <button type="submit"
                                     ui-sref="participante-descripcion.edit({id:participanteDescripcion.id})"
-                                    class="btn btn-primary btn-sm">
+                                    class="btn btn-primary btn-sm"
+                                    ng-show="false">
                                 <span class="glyphicon glyphicon-pencil"></span>
                                 <span class="hidden-xs hidden-sm" translate="entity.action.edit"></span>
                             </button>
                             <button type="submit"
                                     ui-sref="participante-descripcion.delete({id:participanteDescripcion.id})"
-                                    class="btn btn-danger btn-sm">
+                                    class="btn btn-danger btn-sm"
+                                    ng-show="false">
                                 <span class="glyphicon glyphicon-remove-circle"></span>
                                 <span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>
                             </button>

@@ -37,7 +37,7 @@
                         <span translate="global.menu.entities.registroParticipante">Registro</span>
                     </a>
                 </li>
-                <li ng-class="{active: vm.$state.includes('registroPropuesta')}" ng-show="vm.isAuthenticated()">
+                <li ng-class="{active: vm.$state.includes('registroPropuesta')}" ng-show="vm.isAuthenticated()" has-authority="ROLE_USER">
                     <a ui-sref="registroPropuesta" ng-click="vm.collapseNavbar()">
                         <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
                         <span translate="global.menu.entities.registroPropuesta">Registro</span>
@@ -55,7 +55,7 @@
                         </span>
                     </a>
                     <ul class="dropdown-menu" uib-dropdown-menu>
-                        <li ui-sref-active="active" >
+                        <li ui-sref-active="active" ng-show="false">
                             <a ui-sref="participante" ng-click="vm.collapseNavbar()">
                                 <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
                                 <span translate="global.menu.entities.participante">Participante</span>
@@ -64,7 +64,7 @@
                         <li ui-sref-active="active" >
                             <a ui-sref="contacto" ng-click="vm.collapseNavbar()">
                                 <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
-                                <span translate="global.menu.entities.contacto">Contacto</span>
+                                <span translate="global.menu.entities.participante">Participante</span>
                             </a>
                         </li>
                         <li ui-sref-active="active" >
@@ -82,28 +82,28 @@
                         <li ui-sref-active="active" >
                             <a ui-sref="proyecto" ng-click="vm.collapseNavbar()">
                                 <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
-                                <span translate="global.menu.entities.proyecto">Proyecto</span>
+                                <span translate="global.menu.entities.asigarVoluntario">Asignar</span>
                             </a>
                         </li>
                         <li ui-sref-active="active" >
                             <a ui-sref="proyecto-concurso" ng-click="vm.collapseNavbar()">
                                 <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
-                                <span translate="global.menu.entities.proyectoConcurso">Proyecto Concurso</span>
+                                <span translate="global.menu.entities.cambiarEstatusProyecto">Estatus Proyecto</span>
                             </a>
                         </li>
-                        <li ui-sref-active="active" >
+                        <li ui-sref-active="active" ng-show="false">
                             <a ui-sref="pregunta-seccion" ng-click="vm.collapseNavbar()">
                                 <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
                                 <span translate="global.menu.entities.preguntaSeccion">Pregunta Seccion</span>
                             </a>
                         </li>
-                        <li ui-sref-active="active" >
+                        <li ui-sref-active="active" ng-show="false">
                             <a ui-sref="pregunta" ng-click="vm.collapseNavbar()">
                                 <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
                                 <span translate="global.menu.entities.pregunta">Pregunta</span>
                             </a>
                         </li>
-                        <li ui-sref-active="active" >
+                        <li ui-sref-active="active" ng-show="false">
                             <a ui-sref="respuesta" ng-click="vm.collapseNavbar()">
                                 <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
                                 <span translate="global.menu.entities.respuesta">Respuesta</span>
